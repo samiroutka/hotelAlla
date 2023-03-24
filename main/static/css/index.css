@@ -1,0 +1,140 @@
+@font-face {
+  font-family: Pinstripe;
+  src: url("/static/main/static/css/fonts/AlumniSansPinstripe-Regular.ttf");
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Pinstripe;
+}
+
+/* --------------------------------- */
+header {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  text-align: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+header .info {
+  width: 100%;
+  height: 20%;
+  padding-top: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 50% 50%;
+  align-items: center;
+  grid-template-areas: 'logo phone' 'logo address';
+}
+header .logo {
+  width: 100%;
+  height: 100%;
+  grid-area: logo;
+}
+header .phone {
+  margin: 0;
+  grid-area: phone;
+}
+header .address {
+  margin: 0;
+  grid-area: address;
+}
+header .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  filter: brightness(50%);
+  object-fit: cover;
+  object-position: 73%;
+}
+
+/* --------------------------------- */
+main .title {
+  margin: 10vw 0 5vw 0;
+  text-align: center;
+  font-size: 3.5em;
+}
+main .rooms {
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+}
+main .rooms::-webkit-scrollbar {
+  display: none;
+}
+main .room {
+  width: 40vw;
+  height: 60vw;
+  margin: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border: 2px solid black;
+  border-radius: 10px/10px;
+  transition: all .2s linear;
+}
+main .room * {
+  transition: all .2s linear;
+}
+main .room.enlarge {
+  width: 66vw;
+  height: 100vw;
+}
+main .room.enlarge .roomSlider {
+  width: 56.1vw;
+  margin-bottom: 3%;
+  flex-grow: 1;
+}
+main .room.enlarge .roomImage {
+  width: 56.1vw;
+  height: 100%;
+}
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+main .room.enlarge .roomSleep, main .room.enlarge .roomPrice {
+  display: block;
+  animation: appearance .2s linear;
+}
+main .roomName {
+  text-align: center;
+  font-size: 1.7em;
+}
+main .roomSlider {
+  width: 30vw;
+  height: 45vw;
+  margin: 0 auto;
+  margin-top: 1vw;
+  overflow: hidden;
+  border: 2px solid black;
+  border-radius: 5px/5px;
+}
+main .roomImages {
+  width: fit-content;
+  display: flex;
+}
+main .roomImage {
+  width: 30vw;
+  height: 45vw;
+  object-fit: cover;
+}
+main .roomSleep, main .roomPrice {
+  display: none;
+  height: 10%;
+  text-align: center;
+  font-size: 1.6em;
+}

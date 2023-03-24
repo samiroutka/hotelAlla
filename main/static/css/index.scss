@@ -101,6 +101,7 @@ main{
     flex-direction: column;
     flex-shrink: 0;
   
+    background-color: wheat;
     border: 2px solid black;
     border-radius: 10px/10px;
     transition: all .2s linear;
@@ -111,16 +112,20 @@ main{
 
     // Увеличение комнаты
     &.enlarge{
-      width: 100vw * 0.66;
-      height: 100vw;
+      width: 125vw * 0.66;
+      height: 120vw;
 
       .roomSlider{
-        width: 85vw * 0.66;
+        width: 110vw * 0.66;
         margin-bottom: 3%;
         flex-grow: 1;
+
+        .sliderLeft, .sliderRight{
+          display: block;
+        }
       }
       .roomImage{
-        width: 85vw * 0.66;
+        width: 110vw * 0.66;
         height: 100%;
       }
 
@@ -150,9 +155,27 @@ main{
     margin: 0 auto;
     margin-top: 1vw;
     overflow: hidden;
+    position: relative;
     
     border: 2px solid black;
     border-radius: 5px/5px;
+  
+    .sliderLeft, .sliderRight{
+      width: 25%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: none;
+
+      background-color: rgba(0, 0, 0, 0.15);
+      border: 0;
+    }
+    .sliderLeft{
+      left: 0;
+    }
+    .sliderRight{
+      right: 0;
+    }
   }
   .roomImages{
     width: fit-content;

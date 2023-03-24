@@ -78,6 +78,7 @@ main .room {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  background-color: wheat;
   border: 2px solid black;
   border-radius: 10px/10px;
   transition: all .2s linear;
@@ -86,16 +87,19 @@ main .room * {
   transition: all .2s linear;
 }
 main .room.enlarge {
-  width: 66vw;
-  height: 100vw;
+  width: 82.5vw;
+  height: 120vw;
 }
 main .room.enlarge .roomSlider {
-  width: 56.1vw;
+  width: 72.6vw;
   margin-bottom: 3%;
   flex-grow: 1;
 }
+main .room.enlarge .roomSlider .sliderLeft, main .room.enlarge .roomSlider .sliderRight {
+  display: block;
+}
 main .room.enlarge .roomImage {
-  width: 56.1vw;
+  width: 72.6vw;
   height: 100%;
 }
 @keyframes appearance {
@@ -120,8 +124,24 @@ main .roomSlider {
   margin: 0 auto;
   margin-top: 1vw;
   overflow: hidden;
+  position: relative;
   border: 2px solid black;
   border-radius: 5px/5px;
+}
+main .roomSlider .sliderLeft, main .roomSlider .sliderRight {
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 0;
+}
+main .roomSlider .sliderLeft {
+  left: 0;
+}
+main .roomSlider .sliderRight {
+  right: 0;
 }
 main .roomImages {
   width: fit-content;

@@ -9,8 +9,10 @@ for (let roomStripe of roomStripes){
 }
 
 // работа слайдера
+let transitionDuration = getComputedStyle(document.querySelector('.room').children[0])['transitionDuration']
+let testOfDuration = false // проверка на завершение анимации room
 document.addEventListener('click', (event) => {
-  if (event.target.closest('.enlarge') && event.target.closest('.roomSlider')){
+  if (testOfDuration && event.target.closest('.enlarge') && event.target.closest('.roomImages')){
     let currentTransform = parseInt(event.target.closest('.roomImages').style.transform.slice(11, -1)) ?
     parseInt(event.target.closest('.roomImages').style.transform.slice(11, -1)) : 0 
     // лево
@@ -37,18 +39,33 @@ document.addEventListener('click', (event) => {
 })
 
 // Открытие room
+function resetRoom(node) {
+  node.querySelector('.roomImages').style.transform = 'translateX(0)'
+  for (let element of node.querySelector('.roomStripes').children){
+    element.classList.remove('selected')
+  }
+  node.querySelector('.roomStripes').firstChild.classList.add('selected')
+}
 document.addEventListener('click', (event) => {
   let currentRoom = event.target.closest('.room')
-  if (currentRoom && !document.querySelector('.enlarge')){
-    currentRoom.classList.add('enlarge')
-  } else if (event.target.closest('.enlarge') && !event.target.closest('.roomSlider')){
-    currentRoom.classList.remove('enlarge')
-    currentRoom.querySelector('.roomImages').style.transform = 'translateX(0)'
-    for (let roomStripe of document.querySelectorAll('.roomStripes')){
-      for (let element of roomStripe.children){
-        element.classList.remove('selected')
-      }
-      roomStripe.firstChild.classList.add('selected')
+  if (currentRoom){
+    if (!document.querySelector('.enlarge')){
+      testOfDuration = false
+      currentRoom.classList.add('enlarge')
+      setTimeout(() => {
+        testOfDuration = true
+      }, parseFloat(transitionDuration)*1000);
+    } else if (document.querySelector('.enlarge') && !currentRoom.classList.contains('enlarge')) {
+      resetRoom(document.querySelector('.enlarge'))
+      document.querySelector('.enlarge').classList.remove('enlarge')
+      testOfDuration = false
+      currentRoom.classList.add('enlarge')
+      setTimeout(() => {
+        testOfDuration = true
+      }, parseFloat(transitionDuration)*1000);
+    } else if (event.target.closest('.enlarge') && !event.target.closest('.roomSlider')){
+      currentRoom.classList.remove('enlarge')
+      resetRoom(currentRoom)
     }
   }
 })

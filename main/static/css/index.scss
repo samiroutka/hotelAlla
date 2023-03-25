@@ -115,18 +115,23 @@ main{
       width: 125vw * 0.66;
       height: 120vw;
 
+      $sliderRoomEnlargeWidth: 110vw * 0.66;
       .roomSlider{
-        width: 110vw * 0.66;
+        width: $sliderRoomEnlargeWidth;
+        height: 190vw * 0.66;
         margin-bottom: 3%;
         flex-grow: 1;
-
-        .sliderLeft, .sliderRight{
-          display: block;
-        }
+      }
+      .roomImages{
+        height: 100%;
       }
       .roomImage{
-        width: 110vw * 0.66;
+        width: $sliderRoomEnlargeWidth;
         height: 100%;
+      }
+      .roomStripes{
+        width: $sliderRoomEnlargeWidth;
+        display: flex;
       }
 
       @keyframes appearance {
@@ -159,32 +164,43 @@ main{
     
     border: 2px solid black;
     border-radius: 5px/5px;
-  
-    .sliderLeft, .sliderRight{
-      width: 25%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      display: none;
-
-      background-color: rgba(0, 0, 0, 0.15);
-      border: 0;
-    }
-    .sliderLeft{
-      left: 0;
-    }
-    .sliderRight{
-      right: 0;
-    }
   }
   .roomImages{
     width: fit-content;
+    height: 100%;
     display: flex;
+
+    transition: transform 0s;
   }
   .roomImage{
     width: $roomSlider_width;
     height: $roomSlider_height;
-    object-fit: cover;
+    display: block;
+
+    object-fit: contain;
+    // object-position: center;
+    background-color: rgb(190, 172, 138);
+  }
+  .roomStripes{
+    height: 3%;
+    margin-top: 1%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+
+    & div{
+      height: 100%;
+      margin: 0 2%;
+      flex-grow: 1;
+
+      background-color: rgba(128, 128, 128, 0.5);
+      border-radius: 5px/5px;
+      animation: appearance .2s linear;
+    }
+    & .selected{
+      background-color: black;
+    }
   }
   .roomSleep, .roomPrice{
     display: none;

@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'main/static/css/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'main/static/css/slick-theme.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
   <title>Document</title>
 </head>
 <body>
-  
+
+<p class="preloading" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5vw; font-family: 'Courier New', Courier, monospace;">загрузка ...</p>
+
+<div class="wrapper" style="display: none;">
 <header>
   <div class="info">
     <img src="{% static 'main/static/css/images/logo.png' %}" alt="" class="logo">
@@ -93,6 +98,19 @@
   </div>
 </main>
 
+<main class="places">
+  <div class="title">Общие места</div>
+  <div class="slider">
+    <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="sliderImage">
+    <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="sliderImage">
+    <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="sliderImage">
+    <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="sliderImage">
+  </div>
+</main>
+</div>
+
+<script src="{% static 'main/static/js/jquery.min.js' %}"></script>
+<script src="{% static 'main/static/js/slick.min.js' %}"></script>
 <script src="{% static 'main/static/js/index.js' %}"></script>
 </body>
 </html>

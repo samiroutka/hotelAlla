@@ -1,4 +1,15 @@
 
+// window.addEventListener('load', () => {
+  // document.querySelector('body').style.display = 'block'    
+// })
+
+$(document).ready(() => {
+  setTimeout(() => {
+    document.querySelector('.preloading').style.display = 'none'
+    document.querySelector('.wrapper').style.display = 'block'
+  }, 2000);
+})
+
 // Создание полосок сверху
 let roomStripes = document.querySelectorAll('.roomStripes')
 for (let roomStripe of roomStripes){
@@ -38,7 +49,7 @@ document.addEventListener('click', (event) => {
   }
 })
 
-// Открытие room
+
 function resetRoom(node) {
   node.querySelector('.roomImages').style.transform = 'translateX(0)'
   for (let element of node.querySelector('.roomStripes').children){
@@ -46,23 +57,24 @@ function resetRoom(node) {
   }
   node.querySelector('.roomStripes').firstChild.classList.add('selected')
 }
+function enlargeRoom(node){
+  testOfDuration = false
+  node.classList.add('enlarge')
+  setTimeout(() => {
+    testOfDuration = true
+    node.scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
+  }, parseFloat(transitionDuration)*1000);
+}
+// Открытие room
 document.addEventListener('click', (event) => {
   let currentRoom = event.target.closest('.room')
   if (currentRoom){
     if (!document.querySelector('.enlarge')){
-      testOfDuration = false
-      currentRoom.classList.add('enlarge')
-      setTimeout(() => {
-        testOfDuration = true
-      }, parseFloat(transitionDuration)*1000);
+      enlargeRoom(currentRoom)
     } else if (document.querySelector('.enlarge') && !currentRoom.classList.contains('enlarge')) {
       resetRoom(document.querySelector('.enlarge'))
       document.querySelector('.enlarge').classList.remove('enlarge')
-      testOfDuration = false
-      currentRoom.classList.add('enlarge')
-      setTimeout(() => {
-        testOfDuration = true
-      }, parseFloat(transitionDuration)*1000);
+      enlargeRoom(currentRoom)
     } else if (event.target.closest('.enlarge') && !event.target.closest('.roomSlider')){
       currentRoom.classList.remove('enlarge')
       resetRoom(currentRoom)
@@ -70,3 +82,7 @@ document.addEventListener('click', (event) => {
   }
 })
 
+$('.slider').slick({
+  infinite: false,
+  dots: true,
+})

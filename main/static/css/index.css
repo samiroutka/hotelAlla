@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: Pinstripe;
   src: url("/static/main/static/css/fonts/AlumniSansPinstripe-Regular.ttf");
@@ -6,6 +7,20 @@ body {
   margin: 0;
   padding: 0;
   font-family: Pinstripe;
+}
+body * {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+img {
+  -webkit-user-drag: none;
+  /* запрет на перетаскивание в браузерах на основе WebKit */
+  -moz-user-select: none;
+  /* запрет на выделение текста в браузерах на основе Gecko */
+  -ms-user-select: none;
+  /* запрет на выделение текста в Internet Explorer */
+  user-select: none;
+  /* запрет на выделение текста во всех браузерах */
 }
 
 /* --------------------------------- */
@@ -18,32 +33,34 @@ header {
   font-weight: 900;
   font-size: 1.3em;
 }
-header .info {
-  width: 100%;
+header .name {
+  width: 90%;
   height: 20%;
-  padding-top: 2vw;
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  top: 5%;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 50% 50%;
-  align-items: center;
-  grid-template-areas: 'logo phone' 'logo address';
 }
-header .logo {
-  width: 100%;
-  height: 100%;
-  grid-area: logo;
+header .name img {
+  width: 20%;
+  object-fit: contain;
 }
-header .phone {
+header .name .title {
+  width: 75%;
+  align-self: center;
+  font-size: 4vh;
+}
+header .info {
+  margin: 0 auto;
+  width: 60%;
+  position: relative;
+  top: 10%;
+  z-index: 2;
+  font-size: 1em;
+}
+header .info * {
   margin: 0;
-  grid-area: phone;
-}
-header .address {
-  margin: 0;
-  grid-area: address;
 }
 header .background {
   width: 100%;
@@ -58,23 +75,38 @@ header .background {
 }
 
 /* --------------------------------- */
-main .title {
+.numbers:hover {
+  cursor: grab;
+}
+.numbers:active {
+  cursor: grabbing;
+}
+.numbers .title {
   margin: 10vw 0 5vw 0;
   text-align: center;
   font-size: 3.5em;
 }
-main .rooms {
+.numbers .rooms {
+  padding-bottom: 5vh;
   width: 100%;
   overflow-x: scroll;
   display: flex;
 }
-main .rooms::-webkit-scrollbar {
+.numbers .rooms::-webkit-scrollbar {
   display: none;
 }
-main .room {
+.numbers .rooms::-webkit-scrollbar {
+  display: block;
+  height: 10px;
+}
+.numbers .rooms::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+.numbers .room {
+  margin: 0 10vw;
   width: 40vw;
   height: 60vw;
-  margin: 0 10vw;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -83,27 +115,30 @@ main .room {
   border-radius: 10px/10px;
   transition: all .2s linear;
 }
-main .room * {
+.numbers .room:hover {
+  cursor: pointer;
+}
+.numbers .room * {
   transition: all .2s linear;
 }
-main .room.enlarge {
+.numbers .room.enlarge {
   width: 82.5vw;
   height: 120vw;
 }
-main .room.enlarge .roomSlider {
+.numbers .room.enlarge .roomSlider {
   width: 72.6vw;
   height: 125.4vw;
   margin-bottom: 3%;
   flex-grow: 1;
 }
-main .room.enlarge .roomImages {
+.numbers .room.enlarge .roomImages {
   height: 100%;
 }
-main .room.enlarge .roomImage {
+.numbers .room.enlarge .roomImage {
   width: 72.6vw;
   height: 100%;
 }
-main .room.enlarge .roomStripes {
+.numbers .room.enlarge .roomStripes {
   width: 72.6vw;
   display: flex;
 }
@@ -115,15 +150,16 @@ main .room.enlarge .roomStripes {
     opacity: 1;
   }
 }
-main .room.enlarge .roomSleep, main .room.enlarge .roomPrice {
+.numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomPrice {
   display: block;
   animation: appearance .2s linear;
 }
-main .roomName {
+.numbers .roomName {
   text-align: center;
   font-size: 1.7em;
+  user-select: none;
 }
-main .roomSlider {
+.numbers .roomSlider {
   width: 30vw;
   height: 45vw;
   margin: 0 auto;
@@ -133,20 +169,20 @@ main .roomSlider {
   border: 2px solid black;
   border-radius: 5px/5px;
 }
-main .roomImages {
+.numbers .roomImages {
   width: fit-content;
   height: 100%;
   display: flex;
   transition: transform 0s;
 }
-main .roomImage {
+.numbers .roomImage {
   width: 30vw;
   height: 45vw;
   display: block;
   object-fit: contain;
   background-color: #beac8a;
 }
-main .roomStripes {
+.numbers .roomStripes {
   height: 3%;
   margin-top: 1%;
   position: absolute;
@@ -154,7 +190,7 @@ main .roomStripes {
   left: 0;
   display: none;
 }
-main .roomStripes div {
+.numbers .roomStripes div {
   height: 100%;
   margin: 0 2%;
   flex-grow: 1;
@@ -162,10 +198,10 @@ main .roomStripes div {
   border-radius: 5px/5px;
   animation: appearance .2s linear;
 }
-main .roomStripes .selected {
+.numbers .roomStripes .selected {
   background-color: black;
 }
-main .roomSleep, main .roomPrice {
+.numbers .roomSleep, .numbers .roomPrice {
   display: none;
   height: 10%;
   text-align: center;
@@ -173,12 +209,72 @@ main .roomSleep, main .roomPrice {
 }
 
 /* --------------------------------- */
+.places .title {
+  margin: 10vw 0 5vw 0;
+  text-align: center;
+  font-size: 3.5em;
+}
 .places .slider {
   width: 100%;
-  height: 30vh;
+  height: 40vh;
 }
 .places .sliderImage {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   background-color: rgba(255, 249, 238, 0.3);
-  border-radius: 20px/20px;
+}
+.places .description {
+  margin: 5vh auto;
+  margin-top: 2vh;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+.places .description .description__title {
+  font-size: 1.3em;
+}
+
+/* --------------------------------- */
+.booking {
+  width: 90%;
+  margin: 5vw auto;
+  display: grid;
+  align-items: end;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 7fr;
+  grid-gap: 5vw;
+  grid-template-areas: 'room dates' 'people phone' 'submit submit';
+}
+.booking div {
+  display: flex;
+  flex-direction: column;
+}
+.booking div * {
+  font-size: 1.3em;
+}
+.booking input {
+  width: 100%;
+  height: 7vw;
+  font-size: 1.2em;
+}
+.booking .booking__submit {
+  height: auto;
+}
+.booking__room {
+  grid-area: room;
+}
+.booking__dates {
+  grid-area: dates;
+}
+.booking__people {
+  grid-area: people;
+}
+.booking__phone {
+  grid-area: phone;
+}
+.booking__submit {
+  grid-area: submit;
+  justify-self: center;
 }

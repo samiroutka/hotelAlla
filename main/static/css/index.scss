@@ -9,6 +9,17 @@ body{
   padding: 0;
 
   font-family: Pinstripe;
+
+  *{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+img {
+  -webkit-user-drag: none; /* запрет на перетаскивание в браузерах на основе WebKit */
+  -moz-user-select: none; /* запрет на выделение текста в браузерах на основе Gecko */
+  -ms-user-select: none; /* запрет на выделение текста в Internet Explorer */
+  user-select: none; /* запрет на выделение текста во всех браузерах */
 }
 
 /* --------------------------------- */
@@ -24,43 +35,40 @@ header{
   font-weight: 900;
   font-size: 1.3em;
 
-  .info{
-    width: 100%;
+  .name{
+    width: 90%;
     height: 20%;
-    padding-top: 2vw;
-  
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    top: 5%;
+    z-index: 2;
+    img{
+      width: 20%;
+      object-fit: contain;
+    }
+    .title{
+      width: 75%;
+      align-self: center;
+      font-size: 4vh;
+    }
+  }
+  .info{
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    top: 10%;
     z-index: 2;
 
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 50% 50%;
-    align-items: center;
-    grid-template-areas: 
-    'logo phone'
-    'logo address';
-  }
-  .logo{
-    width: 100%;
-    height: 100%;
-    grid-area: logo;
-  }
-  .phone{
-    margin: 0;
-  
-    grid-area: phone;
-  }
-  .address{
-    margin: 0;
-  
-    grid-area: address;
+    font-size: 1em;
+
+    *{
+      margin: 0;
+    }
   }
   .background{
     width: 100%;
     height: 100%;
-  
     position: absolute;
     top: 0;
     left: 0;
@@ -75,7 +83,15 @@ header{
 
 /* --------------------------------- */
 
-main{
+.numbers{
+
+  &:hover{
+    cursor: grab;
+  }
+  &:active{
+    cursor: grabbing;
+  }
+
   .title{
     margin: 10vw 0 5vw 0;
   
@@ -83,6 +99,7 @@ main{
     font-size: 3.5em;
   }
   .rooms{
+    padding-bottom: 5vh;
     width: 100%;
     overflow-x: scroll;
   
@@ -91,11 +108,19 @@ main{
     &::-webkit-scrollbar{
       display: none;
     }
+    &::-webkit-scrollbar {
+      display: block;
+      height: 10px; 
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+    }
   }
   .room{
+    margin: 0 10vw;
     width: 40vw;
     height: 60vw;
-    margin: 0 10vw;
 
     display: flex;
     flex-direction: column;
@@ -105,6 +130,10 @@ main{
     border: 2px solid black;
     border-radius: 10px/10px;
     transition: all .2s linear;
+
+    &:hover{
+      cursor: pointer;
+    }
 
     *{
       transition: all .2s linear;
@@ -151,6 +180,7 @@ main{
   .roomName{
     text-align: center;
     font-size: 1.7em;
+    user-select: none;
   }
   $roomSlider_width: 30vw;
   $roomSlider_height: 45vw;
@@ -178,7 +208,6 @@ main{
     display: block;
 
     object-fit: contain;
-    // object-position: center;
     background-color: rgb(190, 172, 138);
   }
   .roomStripes{
@@ -214,17 +243,87 @@ main{
 /* --------------------------------- */
 
 .places{
-  & .slider{
-    width: 100%;
-    height: 30vh;
+  .title{
+    margin: 10vw 0 5vw 0;
+  
+    text-align: center;
+    font-size: 3.5em;
   }
-  & .sliderImage{
+  .slider{
+    width: 100%;
+    height: 40vh;
+  }
+  .sliderImage{
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     background-color: rgba(255, 249, 238, 0.3);
-    border-radius: 20px/20px;
+  }
+
+  .description{
+    margin: 5vh auto;
+    margin-top: 2vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  
+    font-size: 20px;
+
+    .description__title{
+      font-size: 1.3em;
+    }
   }
 }
 
+/* --------------------------------- */
+
+.booking{
+  width: 90%;
+  margin: 5vw auto;
+  display: grid;
+  align-items: end;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 3fr 7fr;
+  grid-gap: 5vw;
+  grid-template-areas: 
+  'room dates'
+  'people phone'
+  'submit submit';
+
+  div{
+    display: flex;
+    flex-direction: column;
+
+    *{
+      font-size: 1.3em;
+    }
+  }
+  input{
+    width: 100%;
+    height: 7vw;
+    font-size: 1.2em;
+  }
+  .booking__submit{
+    height: auto;
+  }
+
+  &__room{
+    grid-area: room;
+  }
+  &__dates{
+    grid-area: dates;
+  }
+  &__people{
+    grid-area: people;
+  }
+  &__phone{
+    grid-area: phone;
+  }
+  &__submit{
+    grid-area: submit;
+    justify-self: center;
+  }
+}
 
 
 

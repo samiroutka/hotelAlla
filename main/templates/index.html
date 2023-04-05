@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'main/static/css/slick.css' %}">
-  <link rel="stylesheet" href="{% static 'main/static/css/slick-theme.css' %}">
+  <!-- ----------------- -->
+  <link rel="stylesheet" href="{% static 'main/static/css/air-datepicker.css' %}">
+  <!-- ----------------- -->
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'main/static/css/index_tablet.css' %}">
+  <link rel="stylesheet" href="{% static 'main/static/css/index_pc.css' %}">
   <title>Document</title>
 </head>
 <body>
@@ -14,18 +17,24 @@
 <p class="preloading" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5vw; font-family: 'Courier New', Courier, monospace;">загрузка ...</p>
 
 <div class="wrapper" style="display: none;">
+<!-- ----------------- -->
 <header>
-  <div class="info">
+  <div class="name">
     <img src="{% static 'main/static/css/images/logo.png' %}" alt="" class="logo">
+    <div class="title">Гостевой дом Алла</div>
+  </div>
+  <div class="info">
     <p class="phone">+7-912-324-86-32</p>
     <p class="address">г. Пятигорск ул. Универститетская 55</p>
   </div>
   <img src="{% static 'main/static/css/images/hotel_main.jpg' %}" alt="" class="background">
 </header>
 
-<main>
+<!-- ------------------------------------------------------------ -->
+
+<main class="numbers">
   <div class="title">Номера</div>
-  <div class="majorSlider">
+  <div class="majorSlider" free-mode="true">
     <div class="rooms">
       <div class="room">
         <div class="roomName">номер 1</div>
@@ -98,19 +107,75 @@
   </div>
 </main>
 
+<!-- ------------------------------------------------------------ -->
+
 <main class="places">
-  <div class="title">Общие места</div>
-  <div class="slider">
-    <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="sliderImage">
-    <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="sliderImage">
-    <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="sliderImage">
-    <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="sliderImage">
+  <p class="title">Общие места</p>
+  <swiper-container class="slider" 
+    pagination="true"
+    navigation="true"
+    autoplay="true"
+    autoplay-delay="15000"
+    loop="true"
+    speed="1000"
+   >
+    <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/kitchen.jpg' %}" alt=""></swiper-slide>
+    <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
+    <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
+  </swiper-container>
+  <div class="description">
+    <div class="description__block">
+      <div class="description__title">Кухня</div>
+      <div class="description__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem incidunt possimus deserunt ut error suscipit, temporibus obcaecati accusantium perspiciatis dolores. Sint aut eaque modi delectus eos iure nesciunt cumque! Ipsum.</div>
+    </div>
+    <div class="description__block">
+      <div class="description__title">Задний двор</div>
+      <div class="description__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione, totam repellat voluptatum placeat facere ipsa. Maxime alias delectus labore doloremque voluptate, in veniam consequuntur earum vero nam illo ducimus!</div>
+    </div>
   </div>
 </main>
+
+
+<!-- ------------------------------------------------------------ -->
+
+<main class="booking">
+  <div class="booking__room">
+    <label for="room">номер</label>
+    <select id="room">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="booking__dates">
+    <label for="calendar">даты проживания</label>
+    <input class="calendar" id="calendar" type="text"></input>
+  </div>
+  <div class="booking__people">
+    <label for="people">количество человек</label>
+    <select id="people">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="booking__phone">
+    <label for="phone">ваш номер телефона</label>
+    <input type="tel" id="phone">
+  </div>
+  <input class="booking__submit" type="submit" value="Запросить звонок">
+</main>
+<!-- ----------------- -->
 </div>
 
 <script src="{% static 'main/static/js/jquery.min.js' %}"></script>
-<script src="{% static 'main/static/js/slick.min.js' %}"></script>
+<script src="{% static 'main/static/js/air-datepicker.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script src="{% static 'main/static/js/index.js' %}"></script>
 </body>
 </html>

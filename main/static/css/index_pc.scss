@@ -1,0 +1,139 @@
+
+@media (min-width: 1200px) {
+  
+// ---------------------------------
+
+header{
+  height: 50vh;
+
+  .name{
+    margin-left: 5vh;
+    width: 40%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 5%;
+    z-index: 2;
+    img{
+      width: 10%;
+      object-fit: contain;
+    }
+    .title{
+      width: 85%;
+      text-align: start;
+      font-size: 6vh;
+    }
+  }
+  .info{
+    margin: 0 auto;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+    width: 40%;
+
+    text-align: end;
+    font-size: 1em;
+
+    *{
+      margin: 0;
+    }
+  }
+}
+
+// ---------------------------------
+
+.numbers{
+  .title{
+    margin: 10vh 0 5vh 0;
+  
+    text-align: center;
+    font-size: 3.5em;
+  }
+  .room{
+    margin: 0 5vw;
+    width: 30vh;
+    height: 45vh;
+
+    &.enlarge{
+      width: 90vh * 0.66;
+      height: 80vh;
+
+      $sliderRoomEnlargeWidth: 80vh * 0.66;
+      .roomSlider{
+        width: $sliderRoomEnlargeWidth;
+        height: 65vh * 0.66;
+      }
+      .roomImage{
+        width: $sliderRoomEnlargeWidth;
+      }
+      .roomStripes{
+        width: $sliderRoomEnlargeWidth;
+      }
+    }
+  }
+  $roomSlider_width: 25vh; 
+  $roomSlider_height: 33vh;
+  .roomSlider{
+    width: $roomSlider_width;
+    height: $roomSlider_height;
+  }
+  .roomImage{
+    width: $roomSlider_width;
+    height: $roomSlider_height;
+  }
+  .roomSleep, .roomPrice{
+    display: none;
+    height: 10%;
+
+    text-align: center;
+    font-size: 2.2em;
+  }
+}
+
+// ---------------------------------
+
+.places{
+  .title{
+    margin: 10vh 0 5vh 0;
+  
+    text-align: center;
+    font-size: 3.5em;
+  }
+  .slider{
+    margin: 0 auto;
+    width: 80%;
+    height: 70%;
+  }
+  .description{
+    margin-top: 10vh;
+    flex-direction: row;
+  
+    font-size: 30px;
+
+    .description__block{
+      box-sizing: border-box;
+      padding: 0 3vh;
+    }
+  }
+}
+
+// -----------------------------------------
+
+.booking{
+  div{
+    *{
+      font-size: 1.6em;
+    }
+  }
+  .booking__dates{
+    width: 30%;
+
+    input{
+      font-size: 1.6em;
+    }
+  }
+}
+
+}

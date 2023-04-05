@@ -1,0 +1,109 @@
+@media (min-width: 665px) {
+  header .name {
+    margin-left: 5vh;
+    width: 40%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 10%;
+    z-index: 2; }
+    header .name img {
+      width: 10%;
+      object-fit: contain; }
+    header .name .title {
+      width: 85%;
+      text-align: start;
+      font-size: 6vh; }
+  header .info {
+    margin: 0 auto;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    z-index: 2;
+    width: 40%;
+    text-align: end;
+    font-size: 1em; }
+    header .info * {
+      margin: 0; }
+
+  .numbers .room {
+    margin: 0 5vw;
+    width: 40vh;
+    height: 60vh; }
+    .numbers .room.enlarge {
+      width: 60vh;
+      height: 90vh; }
+      .numbers .room.enlarge .roomSlider {
+        width: 50vh;
+        height: 125.4vw;
+        margin-bottom: 3%;
+        flex-grow: 1; }
+      .numbers .room.enlarge .roomImages {
+        height: 100%; }
+      .numbers .room.enlarge .roomImage {
+        width: 50vh;
+        height: 100%; }
+      .numbers .room.enlarge .roomStripes {
+        width: 50vh;
+        display: flex; }
+  @keyframes appearance {
+    0% {
+      opacity: 0; }
+    100% {
+      opacity: 1; } }
+      .numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomPrice {
+        display: block;
+        animation: appearance .2s linear; }
+  .numbers .roomName {
+    text-align: center;
+    font-size: 2em;
+    user-select: none; }
+  .numbers .roomSlider {
+    width: 30vh;
+    height: 40vh;
+    margin: 0 auto;
+    margin-top: 1vw;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 5px/5px; }
+  .numbers .roomImage {
+    width: 30vh;
+    height: 40vh;
+    display: block;
+    object-fit: contain;
+    background-color: #beac8a; }
+  .numbers .roomSleep, .numbers .roomPrice {
+    display: none;
+    height: 10%;
+    text-align: center;
+    font-size: 1.5em; }
+
+  .places .description {
+    margin-top: 10vh;
+    flex-direction: row; }
+    .places .description .description__block {
+      box-sizing: border-box;
+      padding: 0 3vh; }
+
+  .booking {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap; }
+    .booking div {
+      width: 18%; }
+      .booking div * {
+        font-size: 1.2em; }
+    .booking .booking__room, .booking .booking__people {
+      width: 10%; }
+    .booking input {
+      height: auto;
+      font-size: 1em; }
+    .booking .booking__dates {
+      width: 30%; }
+    .booking .booking__phone {
+      width: 25%; }
+    .booking .booking__submit {
+      width: 100%; } }

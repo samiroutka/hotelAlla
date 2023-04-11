@@ -1,10 +1,13 @@
 
+let url = document.location.href
+let token = document.querySelector('[name=csrfmiddlewaretoken]').value
+
 // Предзагрузка
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelector('.preloading').style.display = 'none'
     document.querySelector('.wrapper').style.display = 'block'
-  }, 100);
+  }, 1000);
 })
 
 // Создание полосок сверху
@@ -122,20 +125,6 @@ let calendar = new AirDatepicker('.calendar', {
   }
 })
 
-let calendarInput = document.querySelector('.calendar')
-let calendarSubmit = document.querySelector('.booking__submit')
-calendarSubmit.addEventListener('click', () => {
-  let dataOfRoom = document.querySelector('.booking__room select').value
-  let dataOfDates = document.querySelector('.booking__dates input').value
-  let dataOfPeople = document.querySelector('.booking__people select').value
-  let dataOfPhone = document.querySelector('.booking__phone input').value
-  if (dataOfRoom && dataOfDates && dataOfPeople && dataOfPhone){
-    console.log(true)
-  } else{
-    console.log(false)
-  }
-})
-
 // При resize окна
 document.addEventListener('resize', () => {
   let enlargeRoomElement = document.querySelector('.enlarge')
@@ -144,5 +133,39 @@ document.addEventListener('resize', () => {
     setTimeout(() => {
       enlargeRoomElement.scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
     }, parseFloat(transitionDuration)*1000);  }
+})
+
+// Запрашивание звонка
+let bookingBtn = document.querySelector('.booking__submit')
+bookingBtn.addEventListener('click', () => {
+  let room = document.querySelector('.booking__room select').value
+  let date_of_residence = document.querySelector('.booking__dates input').value
+  let amount_of_residents = document.querySelector('.booking__people select').value
+  let phone_number = document.querySelector('.booking__phone input').value
+  if (room && date_of_residence && amount_of_residents && phone_number){
+    async function postBooking(){
+      let response = await fetch(url, {
+        method: 'post',
+        headers: {
+          'X-CSRFToken': token,
+          'POST-BOOKING': 'TRUE'
+        },
+        body: JSON.stringify({
+          'room': room,
+          'date_of_residence': date_of_residence,
+          'amount_of_residents': amount_of_residents,
+          'phone_number': phone_number,
+        })
+      })
+      response = await response.text()
+      if (response != 'OK'){
+        console.log('Error: postBooking')
+      }
+    }
+
+    postBooking()
+  } else{
+    alert('заполните все поля')
+  }
 })
 

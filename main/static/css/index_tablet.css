@@ -90,6 +90,7 @@
   .booking {
     display: flex;
     justify-content: space-between;
+    justify-content: center;
     align-items: end;
     flex-wrap: wrap; }
     .booking div {
@@ -106,4 +107,5 @@
     .booking .booking__phone {
       width: 25%; }
     .booking .booking__submit {
-      width: 100%; } }
+      width: 40%;
+      font-size: 2vw; } }

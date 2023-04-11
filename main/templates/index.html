@@ -13,6 +13,7 @@
   <title>Document</title>
 </head>
 <body>
+{% csrf_token %}
 
 <p class="preloading" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5vw; font-family: 'Courier New', Courier, monospace;">загрузка ...</p>
 
@@ -172,7 +173,6 @@
 <!-- ----------------- -->
 </div>
 
-<script src="{% static 'main/static/js/jquery.min.js' %}"></script>
 <script src="{% static 'main/static/js/air-datepicker.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>

@@ -1,0 +1,66 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'manager/static/css/air-datepicker.css' %}">
+  <link rel="stylesheet" href="{% static 'manager/static/css/manager.css' %}">
+  <title>Manager</title>
+</head>
+<body>
+{% csrf_token %}
+
+<nav>
+  <p class="nav__bookings">Бронирования</p>
+  <p class="nav__base">База номеров</p>
+</nav>
+
+<main class="bookings">
+  <h1 class="title">Бронирования</h1>
+  <div class="allBookings">
+    <div class="booking__titles">
+      <p class="date_of_booking">Дата бронирования</p>
+      <p class="room">Номер</p>
+      <p class="date_of_residence">Даты проживания</p>
+      <p class="amount_of_residents">Количество проживающих</p>
+      <p class="phone_number">Номер телефона</p>
+    </div>
+    {% for element in bookings %}
+    <div class="booking">
+      <p class="date_of_booking">{{ element.date_of_booking }}</p>
+      <p class="room">{{ element.room }}</p>
+      <p class="date_of_residence">{{ element.date_of_residence }}</p>
+      <p class="amount_of_residents">{{ element.amount_of_residents }}</p>
+      <p class="phone_number">{{ element.phone_number }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+<main class="base hidden">
+  <h1>base</h1>
+  <div class="calendars">
+    <div class="calendar__wrapper">
+      <input type="text" class="calendar" id="calendar">
+    </div>
+    <div class="calendar__wrapper">
+      <input type="text" class="calendar" id="calendar">
+    </div>
+    <div class="calendar__wrapper">
+      <input type="text" class="calendar" id="calendar">
+    </div>
+    <div class="calendar__wrapper">
+      <input type="text" class="calendar" id="calendar">
+    </div>
+    <div class="calendar__wrapper">
+      <input type="text" class="calendar" id="calendar">
+    </div>
+  </div>
+  <button class="save">Сохранить</button>
+</main>
+
+<script src="{% static 'manager/static/js/air-datepicker.js' %}"></script>
+<script src="{% static 'manager/static/js/manager.js' %}"></script>
+</body>
+</html>

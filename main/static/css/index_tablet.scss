@@ -134,6 +134,7 @@ header{
 .booking{
   display: flex;
   justify-content: space-between;
+  justify-content: center;
   align-items: end;
   flex-wrap: wrap;
 
@@ -157,7 +158,9 @@ header{
     width: 25%;
   }
   .booking__submit{
-    width: 100%;
+    width: 40%;
+
+    font-size: 2vw;
   }
 }
 

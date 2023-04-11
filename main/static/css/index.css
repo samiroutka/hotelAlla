@@ -1,16 +1,13 @@
 @charset "UTF-8";
 @font-face {
   font-family: Pinstripe;
-  src: url("/static/main/static/css/fonts/AlumniSansPinstripe-Regular.ttf");
-}
+  src: url("/static/main/static/css/fonts/AlumniSansPinstripe-Regular.ttf"); }
 body {
   margin: 0;
   padding: 0;
-  font-family: Pinstripe;
-}
-body * {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+  font-family: Pinstripe; }
+  body * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 img {
   -webkit-user-drag: none;
@@ -20,8 +17,7 @@ img {
   -ms-user-select: none;
   /* запрет на выделение текста в Internet Explorer */
   user-select: none;
-  /* запрет на выделение текста во всех браузерах */
-}
+  /* запрет на выделение текста во всех браузерах */ }
 
 /* --------------------------------- */
 header {
@@ -31,78 +27,64 @@ header {
   text-align: center;
   color: white;
   font-weight: 900;
-  font-size: 1.3em;
-}
-header .name {
-  width: 90%;
-  height: 20%;
-  display: flex;
-  margin: 0 auto;
-  position: relative;
-  top: 5%;
-  z-index: 2;
-}
-header .name img {
-  width: 20%;
-  object-fit: contain;
-}
-header .name .title {
-  width: 75%;
-  align-self: center;
-  font-size: 4vh;
-}
-header .info {
-  margin: 0 auto;
-  width: 60%;
-  position: relative;
-  top: 10%;
-  z-index: 2;
-  font-size: 1em;
-}
-header .info * {
-  margin: 0;
-}
-header .background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  filter: brightness(50%);
-  object-fit: cover;
-  object-position: 73%;
-}
+  font-size: 1.3em; }
+  header .name {
+    width: 90%;
+    height: 20%;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    top: 5%;
+    z-index: 2; }
+    header .name img {
+      width: 20%;
+      object-fit: contain; }
+    header .name .title {
+      width: 75%;
+      align-self: center;
+      font-size: 4vh; }
+  header .info {
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    top: 10%;
+    z-index: 2;
+    font-size: 1em; }
+    header .info * {
+      margin: 0; }
+  header .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: brightness(50%);
+    object-fit: cover;
+    object-position: 73%; }
 
 /* --------------------------------- */
 .numbers:hover {
-  cursor: grab;
-}
+  cursor: grab; }
 .numbers:active {
-  cursor: grabbing;
-}
+  cursor: grabbing; }
 .numbers .title {
   margin: 10vw 0 5vw 0;
   text-align: center;
-  font-size: 3.5em;
-}
+  font-size: 3.5em; }
 .numbers .rooms {
   padding-bottom: 5vh;
   width: 100%;
   overflow-x: scroll;
-  display: flex;
-}
-.numbers .rooms::-webkit-scrollbar {
-  display: none;
-}
-.numbers .rooms::-webkit-scrollbar {
-  display: block;
-  height: 10px;
-}
-.numbers .rooms::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-}
+  display: flex; }
+  .numbers .rooms::-webkit-scrollbar {
+    display: none; }
+  .numbers .rooms::-webkit-scrollbar {
+    display: block;
+    height: 10px; }
+  .numbers .rooms::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px; }
 .numbers .room {
   margin: 0 10vw;
   width: 40vw;
@@ -113,52 +95,39 @@ header .background {
   background-color: wheat;
   border: 2px solid black;
   border-radius: 10px/10px;
-  transition: all .2s linear;
-}
-.numbers .room:hover {
-  cursor: pointer;
-}
-.numbers .room * {
-  transition: all .2s linear;
-}
-.numbers .room.enlarge {
-  width: 82.5vw;
-  height: 120vw;
-}
-.numbers .room.enlarge .roomSlider {
-  width: 72.6vw;
-  height: 125.4vw;
-  margin-bottom: 3%;
-  flex-grow: 1;
-}
-.numbers .room.enlarge .roomImages {
-  height: 100%;
-}
-.numbers .room.enlarge .roomImage {
-  width: 72.6vw;
-  height: 100%;
-}
-.numbers .room.enlarge .roomStripes {
-  width: 72.6vw;
-  display: flex;
-}
+  transition: all .2s linear; }
+  .numbers .room:hover {
+    cursor: pointer; }
+  .numbers .room * {
+    transition: all .2s linear; }
+  .numbers .room.enlarge {
+    width: 82.5vw;
+    height: 120vw; }
+    .numbers .room.enlarge .roomSlider {
+      width: 72.6vw;
+      height: 125.4vw;
+      margin-bottom: 3%;
+      flex-grow: 1; }
+    .numbers .room.enlarge .roomImages {
+      height: 100%; }
+    .numbers .room.enlarge .roomImage {
+      width: 72.6vw;
+      height: 100%; }
+    .numbers .room.enlarge .roomStripes {
+      width: 72.6vw;
+      display: flex; }
 @keyframes appearance {
   0% {
-    opacity: 0;
-  }
+    opacity: 0; }
   100% {
-    opacity: 1;
-  }
-}
-.numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomPrice {
-  display: block;
-  animation: appearance .2s linear;
-}
+    opacity: 1; } }
+    .numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomPrice {
+      display: block;
+      animation: appearance .2s linear; }
 .numbers .roomName {
   text-align: center;
   font-size: 1.7em;
-  user-select: none;
-}
+  user-select: none; }
 .numbers .roomSlider {
   width: 30vw;
   height: 45vw;
@@ -167,74 +136,62 @@ header .background {
   overflow: hidden;
   position: relative;
   border: 2px solid black;
-  border-radius: 5px/5px;
-}
+  border-radius: 5px/5px; }
 .numbers .roomImages {
   width: fit-content;
   height: 100%;
   display: flex;
-  transition: transform 0s;
-}
+  transition: transform 0s; }
 .numbers .roomImage {
   width: 30vw;
   height: 45vw;
   display: block;
   object-fit: contain;
-  background-color: #beac8a;
-}
+  background-color: #beac8a; }
 .numbers .roomStripes {
   height: 3%;
   margin-top: 1%;
   position: absolute;
   top: 0;
   left: 0;
-  display: none;
-}
-.numbers .roomStripes div {
-  height: 100%;
-  margin: 0 2%;
-  flex-grow: 1;
-  background-color: rgba(128, 128, 128, 0.5);
-  border-radius: 5px/5px;
-  animation: appearance .2s linear;
-}
-.numbers .roomStripes .selected {
-  background-color: black;
-}
+  display: none; }
+  .numbers .roomStripes div {
+    height: 100%;
+    margin: 0 2%;
+    flex-grow: 1;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 5px/5px;
+    animation: appearance .2s linear; }
+  .numbers .roomStripes .selected {
+    background-color: black; }
 .numbers .roomSleep, .numbers .roomPrice {
   display: none;
   height: 10%;
   text-align: center;
-  font-size: 1.6em;
-}
+  font-size: 1.6em; }
 
 /* --------------------------------- */
 .places .title {
   margin: 10vw 0 5vw 0;
   text-align: center;
-  font-size: 3.5em;
-}
+  font-size: 3.5em; }
 .places .slider {
   width: 100%;
-  height: 40vh;
-}
+  height: 40vh; }
 .places .sliderImage {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background-color: rgba(255, 249, 238, 0.3);
-}
+  background-color: rgba(255, 249, 238, 0.3); }
 .places .description {
   margin: 5vh auto;
   margin-top: 2vh;
   width: 90%;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
-}
-.places .description .description__title {
-  font-size: 1.3em;
-}
+  font-size: 20px; }
+  .places .description .description__title {
+    font-size: 1.3em; }
 
 /* --------------------------------- */
 .booking {
@@ -245,36 +202,26 @@ header .background {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 3fr 7fr;
   grid-gap: 5vw;
-  grid-template-areas: 'room dates' 'people phone' 'submit submit';
-}
-.booking div {
-  display: flex;
-  flex-direction: column;
-}
-.booking div * {
-  font-size: 1.3em;
-}
-.booking input {
-  width: 100%;
-  height: 7vw;
-  font-size: 1.2em;
-}
-.booking .booking__submit {
-  height: auto;
-}
-.booking__room {
-  grid-area: room;
-}
-.booking__dates {
-  grid-area: dates;
-}
-.booking__people {
-  grid-area: people;
-}
-.booking__phone {
-  grid-area: phone;
-}
-.booking__submit {
-  grid-area: submit;
-  justify-self: center;
-}
+  grid-template-areas: 'room dates' 'people phone' 'submit submit'; }
+  .booking div {
+    display: flex;
+    flex-direction: column; }
+    .booking div * {
+      font-size: 1.3em; }
+  .booking input {
+    width: 100%;
+    height: 7vw;
+    font-size: 1.2em; }
+  .booking .booking__submit {
+    height: auto; }
+  .booking__room {
+    grid-area: room; }
+  .booking__dates {
+    grid-area: dates; }
+  .booking__people {
+    grid-area: people; }
+  .booking__phone {
+    grid-area: phone; }
+  .booking__submit {
+    grid-area: submit;
+    justify-self: center; }

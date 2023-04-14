@@ -22,6 +22,10 @@ img {
   user-select: none; /* запрет на выделение текста во всех браузерах */
 }
 
+.hidden{
+  display: none !important;
+}
+
 /* --------------------------------- */
 
 header{
@@ -322,6 +326,57 @@ header{
   &__submit{
     grid-area: submit;
     justify-self: center;
+  }
+
+  @mixin menus {
+    padding: 3vw;
+    width: 90%;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: white;
+
+    border-radius: 20px/20px;
+  }
+  .fieldsMenu{
+    @include menus;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(150, 0, 0);
+    animation: popUpMenuAnimation 2s linear;
+  }
+  .popUpMenu{
+    @include menus;
+    top: 5vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: rgb(0, 130, 0);
+
+    @keyframes popUpMenuAnimation {
+      0%{
+        opacity: 0;
+        display: block;
+      }
+      10%{
+        opacity: 1;
+        display: block;
+      }
+      90%{
+        opacity: 1;
+        display: block;
+      }
+      100%{
+        opacity: 0;
+      }
+    }
+    animation: popUpMenuAnimation 5s linear;
   }
 }
 

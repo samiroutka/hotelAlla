@@ -80,4 +80,9 @@
   .booking .booking__dates {
     width: 30%; }
     .booking .booking__dates input {
-      font-size: 1.6em; } }
+      font-size: 1.6em; }
+  .booking .fieldsMenu {
+    padding: 1vw; }
+  .booking .popUpMenu {
+    padding: 1vw;
+    top: 1vw; } }

@@ -17,7 +17,7 @@ header{
     .title{
       width: 85%;
       text-align: start;
-      font-size: 6vh;
+      font-size: 4vw;
     }
   }
   .info{
@@ -161,6 +161,13 @@ header{
     width: 40%;
 
     font-size: 2vw;
+  }
+  .fieldsMenu{
+    padding: 1vw;
+  }
+  .popUpMenu{
+    padding: 1vw;
+    top: 1vw;
   }
 }
 

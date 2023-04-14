@@ -2,7 +2,7 @@
 let url = document.location.href
 let token = document.querySelector('[name=csrfmiddlewaretoken]').value
 
-// Предзагрузка
+// Предзагрузка----------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     document.querySelector('.preloading').style.display = 'none'
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 1000);
 })
 
-// Создание полосок сверху
+// Создание полосок сверху----------------------------------------
 let roomStripes = document.querySelectorAll('.roomStripes')
 for (let roomStripe of roomStripes){
   for (let element of roomStripe.parentElement.querySelectorAll('img')){
@@ -19,7 +19,7 @@ for (let roomStripe of roomStripes){
   roomStripe.firstChild.classList.add('selected')
 }
 
-// работа слайдера (типо insta)
+// работа слайдера (типо insta)----------------------------------------
 let transitionDuration = getComputedStyle(document.querySelector('.room').children[0])['transitionDuration']
 let testOfDuration = false // проверка на завершение анимации room
 let moveTest = true
@@ -49,7 +49,7 @@ document.addEventListener('click', (event) => {
     event.target.closest('.roomSlider').querySelector('.roomStripes').children[currentImage].classList.add('selected')
   }
 })
-// перетаскивания номеров с помощью мыши (.rooms)
+// перетаскивания номеров с помощью мыши (.rooms)----------------------------------------
 let roomsElement = document.querySelector('.rooms')
 let startCoordinateX = 0
 let scrollTest = false
@@ -74,8 +74,6 @@ roomsElement.addEventListener('mouseup', (event) => {
   }, 10);
 })
 
-
-
 function resetRoom(node) {
   node.querySelector('.roomImages').style.transform = 'translateX(0)'
   for (let element of node.querySelector('.roomStripes').children){
@@ -91,7 +89,7 @@ function enlargeRoom(node){
     node.scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
   }, parseFloat(transitionDuration)*1000);
 }
-// Открытие room
+// Открытие room----------------------------------------
 document.addEventListener('click', (event) => {
   let currentRoom = event.target.closest('.room')
   if (currentRoom && moveTest){
@@ -108,7 +106,7 @@ document.addEventListener('click', (event) => {
   }
 })
 
-// Календарь (main .booking)
+// Календарь (main .booking)----------------------------------------
 let calendar = new AirDatepicker('.calendar', {
   minDate: new Date('2023-03-27'),
   isMobile: true,
@@ -125,7 +123,7 @@ let calendar = new AirDatepicker('.calendar', {
   }
 })
 
-// При resize окна
+// При resize окна----------------------------------------
 document.addEventListener('resize', () => {
   let enlargeRoomElement = document.querySelector('.enlarge')
   if (enlargeRoomElement) {
@@ -135,14 +133,29 @@ document.addEventListener('resize', () => {
     }, parseFloat(transitionDuration)*1000);  }
 })
 
-// Запрашивание звонка
+// Запрашивание звонка----------------------------------------
 let bookingBtn = document.querySelector('.booking__submit')
+function clearFields() { 
+  document.querySelector('.booking__room select').value = ''
+  document.querySelector('.booking__dates input').value = ''
+  document.querySelector('.booking__people select').value = ''
+  document.querySelector('.booking__phone input').value = ''
+}
+clearFields()
 bookingBtn.addEventListener('click', () => {
+  // Проверка на заполнение всех полей
   let room = document.querySelector('.booking__room select').value
   let date_of_residence = document.querySelector('.booking__dates input').value
   let amount_of_residents = document.querySelector('.booking__people select').value
   let phone_number = document.querySelector('.booking__phone input').value
   if (room && date_of_residence && amount_of_residents && phone_number){
+    // Открытие диалогового окна (popUpMenu)
+    let popUpMenu = document.querySelector('.popUpMenu')
+    popUpMenu.classList.remove('hidden')
+    setTimeout(() => {
+      popUpMenu.classList.add('hidden')
+    }, parseFloat(getComputedStyle(popUpMenu)['animationDuration'])*1000);
+    // Отправка данных на сервер/к менеджеру
     async function postBooking(){
       let response = await fetch(url, {
         method: 'post',
@@ -162,10 +175,14 @@ bookingBtn.addEventListener('click', () => {
         console.log('Error: postBooking')
       }
     }
-
     postBooking()
+    clearFields()
   } else{
-    alert('заполните все поля')
+    let fieldsMenu = document.querySelector('.fieldsMenu')
+    fieldsMenu.classList.remove('hidden')
+    setTimeout(() => {
+      fieldsMenu.classList.add('hidden')
+    }, parseFloat(getComputedStyle(fieldsMenu)['animationDuration'])*1000);
   }
 })
 

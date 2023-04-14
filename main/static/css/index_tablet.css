@@ -14,7 +14,7 @@
     header .name .title {
       width: 85%;
       text-align: start;
-      font-size: 6vh; }
+      font-size: 4vw; }
   header .info {
     margin: 0 auto;
     position: absolute;
@@ -108,4 +108,9 @@
       width: 25%; }
     .booking .booking__submit {
       width: 40%;
-      font-size: 2vw; } }
+      font-size: 2vw; }
+    .booking .fieldsMenu {
+      padding: 1vw; }
+    .booking .popUpMenu {
+      padding: 1vw;
+      top: 1vw; } }

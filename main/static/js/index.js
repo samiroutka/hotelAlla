@@ -19,6 +19,17 @@ for (let roomStripe of roomStripes){
   roomStripe.firstChild.classList.add('selected')
 }
 
+// Очищение полей формы
+let bookingBtn = document.querySelector('.booking__submit')
+function clearFields() { 
+  document.querySelector('.booking__room select').value = ''
+  document.querySelector('.booking__dates input').value = ''
+  document.querySelector('.booking__dates input').setAttribute('disabled', 'true') // установление неактивности на даты
+  document.querySelector('.booking__people select').value = ''
+  document.querySelector('.booking__phone input').value = ''
+}
+clearFields()
+
 // работа слайдера (типо insta)----------------------------------------
 let transitionDuration = getComputedStyle(document.querySelector('.room').children[0])['transitionDuration']
 let testOfDuration = false // проверка на завершение анимации room
@@ -49,7 +60,7 @@ document.addEventListener('click', (event) => {
     event.target.closest('.roomSlider').querySelector('.roomStripes').children[currentImage].classList.add('selected')
   }
 })
-// перетаскивания номеров с помощью мыши (.rooms)----------------------------------------
+// перетаскивания номеров с помощью мыши (.rooms)-----------
 let roomsElement = document.querySelector('.rooms')
 let startCoordinateX = 0
 let scrollTest = false
@@ -106,42 +117,87 @@ document.addEventListener('click', (event) => {
   }
 })
 
-// Календарь (main .booking)----------------------------------------
-let calendar = new AirDatepicker('.calendar', {
-  minDate: new Date('2023-03-27'),
-  isMobile: true,
-  autoClose: true,
-  autoClose: false,
-  range: true,
-  multipleDatesSeparator: ' - ',
-  onRenderCell({date, cellType}){
-    if (cellType == 'day') { // проверяем тип ячейки
-      if ( ((date.getMonth()+1) == 7) && ([3,7,8,9].indexOf(date.getDate()) != -1) ){
-        return {disabled:true}
+// Календарь (main .booking)------------------------------------
+async function mainCalendar(){
+  async function getSelectedDates() {
+    let response = await fetch(url, {
+      headers: {
+        'SELECTED-DATES': 'TRUE'
       }
+    })
+    try{
+      return await response.json()
+    } 
+    catch{
+      return false
     }
   }
-})
+  let disabledDates = await getSelectedDates()
 
-// При resize окна----------------------------------------
+  let current_date = new Date().toLocaleDateString().split('.').reverse().join('-')
+  let next_date = String(parseInt(current_date.split('-')[0])+1)+current_date.slice(4,current_date.length)
+  let calendar = new AirDatepicker('.calendar', {
+    minDate: current_date,
+    maxDate: next_date,
+    isMobile: true,
+    autoClose: false,
+    range: true,
+    multipleDatesSeparator: ' - ',
+    // Установка заблокированных дат в календаре
+    onRenderCell: ({date, cellType}) => {
+      if (cellType == 'day') {
+        if (document.querySelector('#room').value){
+          if (disabledDates[parseInt(document.querySelector('#room').value)-1]
+          .includes(date.toLocaleDateString().split('.').reverse().join('-'))){
+            return {disabled: true}
+          }
+        }
+      }
+    },
+    // Проверка входят ли заблокированные даты в диапазон дат
+    onSelect: ({date}) => {
+      if (date[0] && date[1]){
+        let startDate = new Date(date[0].toLocaleDateString().split('.').reverse().join('-'))
+        let endDate = new Date(date[1].toLocaleDateString().split('.').reverse().join('-'))
+        endDate.setDate(endDate.getDate() - 1)
+        let datesRange = []
+        while (startDate.toLocaleDateString() != endDate.toLocaleDateString()){
+          startDate.setDate(startDate.getDate() + 1)
+          datesRange.push(startDate.toLocaleDateString().split('.').reverse().join('-'))
+        }
+        let currentDisabledDates = disabledDates[parseInt(document.querySelector('#room').value)-1].split(',')
+        if (datesRange.concat(currentDisabledDates).length 
+        != new Set(datesRange.concat(currentDisabledDates)).size){
+          calendar.clear()
+        }
+      }
+    }
+  })
+
+  // Проверка на выбор номера
+  let room = document.querySelector('.booking__room select')
+  room.addEventListener('change', () => {
+    if (room.value){
+      document.querySelector('.booking__dates input').removeAttribute('disabled')
+      document.querySelector('.booking__dates input').value = ''
+      calendar.clear()
+    }
+  })
+}
+mainCalendar()
+
+// При resize окна-------------------------------------------
 document.addEventListener('resize', () => {
   let enlargeRoomElement = document.querySelector('.enlarge')
   if (enlargeRoomElement) {
     resetRoom(enlargeRoomElement)
     setTimeout(() => {
       enlargeRoomElement.scrollIntoView({behavior: "smooth", block: "center", inline: "center"})
-    }, parseFloat(transitionDuration)*1000);  }
+    }, parseFloat(transitionDuration)*1000);  
+  }
 })
 
 // Запрашивание звонка----------------------------------------
-let bookingBtn = document.querySelector('.booking__submit')
-function clearFields() { 
-  document.querySelector('.booking__room select').value = ''
-  document.querySelector('.booking__dates input').value = ''
-  document.querySelector('.booking__people select').value = ''
-  document.querySelector('.booking__phone input').value = ''
-}
-clearFields()
 bookingBtn.addEventListener('click', () => {
   // Проверка на заполнение всех полей
   let room = document.querySelector('.booking__room select').value

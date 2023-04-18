@@ -53,6 +53,7 @@ header{
   }
   .room{
     margin: 0 5vw;
+    padding-bottom: 5vh;
     width: 30vh;
     height: 45vh;
 
@@ -83,7 +84,7 @@ header{
     width: $roomSlider_width;
     height: $roomSlider_height;
   }
-  .roomSleep, .roomPrice{
+  .roomSleep, .roomBathroom, .roomPrice{
     display: none;
     height: 10%;
 
@@ -133,13 +134,6 @@ header{
     input{
       font-size: 1.6em;
     }
-  }
-  .fieldsMenu{
-    padding: 1vw;
-  }
-  .popUpMenu{
-    padding: 1vw;
-    top: 1vw;
   }
 }
 

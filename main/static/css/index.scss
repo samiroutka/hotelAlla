@@ -123,10 +123,12 @@ header{
   }
   .room{
     margin: 0 10vw;
+    padding-bottom: 3vw;
     width: 40vw;
     height: 60vw;
 
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     flex-shrink: 0;
   
@@ -145,6 +147,7 @@ header{
 
     // Увеличение room
     &.enlarge{
+      padding-bottom: 0;
       width: 125vw * 0.66;
       height: 120vw;
 
@@ -175,7 +178,7 @@ header{
           opacity: 1;
         }
       }
-      .roomSleep, .roomPrice{
+      .roomSleep, .roomBathroom, .roomPrice{
         display: block;
         animation: appearance .2s linear;
       }
@@ -183,7 +186,7 @@ header{
   }
   .roomName{
     text-align: center;
-    font-size: 1.7em;
+    font-size: 2em;
     user-select: none;
   }
   $roomSlider_width: 30vw;
@@ -192,7 +195,6 @@ header{
     width: $roomSlider_width;
     height: $roomSlider_height;
     margin: 0 auto;
-    margin-top: 1vw;
     overflow: hidden;
     position: relative;
     
@@ -235,7 +237,7 @@ header{
       background-color: black;
     }
   }
-  .roomSleep, .roomPrice{
+  .roomSleep, .roomBathroom, .roomPrice{
     display: none;
     height: 10%;
 

@@ -29,6 +29,7 @@
 
   .numbers .room {
     margin: 0 5vw;
+    padding-bottom: 3vh;
     width: 40vh;
     height: 60vh; }
     .numbers .room.enlarge {
@@ -52,7 +53,7 @@
       opacity: 0; }
     100% {
       opacity: 1; } }
-      .numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomPrice {
+      .numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomBathroom, .numbers .room.enlarge .roomPrice {
         display: block;
         animation: appearance .2s linear; }
   .numbers .roomName {
@@ -63,7 +64,6 @@
     width: 30vh;
     height: 40vh;
     margin: 0 auto;
-    margin-top: 1vw;
     overflow: hidden;
     position: relative;
     border: 2px solid black;

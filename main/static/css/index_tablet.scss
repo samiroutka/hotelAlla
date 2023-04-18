@@ -42,6 +42,7 @@ header{
 .numbers{
   .room{
     margin: 0 5vw;
+    padding-bottom: 3vh;
     width: 40vh;
     height: 60vh;
   
@@ -75,7 +76,7 @@ header{
           opacity: 1;
         }
       }
-      .roomSleep, .roomPrice{
+      .roomSleep, .roomBathroom, .roomPrice{
         display: block;
         animation: appearance .2s linear;
       }
@@ -92,7 +93,6 @@ header{
     width: $roomSlider_width;
     height: $roomSlider_height;
     margin: 0 auto;
-    margin-top: 1vw;
     overflow: hidden;
     position: relative;
     

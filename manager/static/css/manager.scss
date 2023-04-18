@@ -93,10 +93,41 @@ nav{
 
 .base{
   .calendars{
+    margin: 0 auto;
+    width: 95%;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
-
+  .calendar__wrapper{
+    margin-bottom: 5vw;
+    width: 22%;
+  }
+  .calendar__title{
+    font-size: 1.5em;
+  }
   input{
     display: none;
+  }
+  .save{
+    margin: 0 auto;
+    display: block;
+
+    font-size: 2em;
+  }
+  .saveMenu{
+    padding: 5vh;
+    width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    font-size: 1.5em;
+    text-align: center;
+  
+    background-color: green;
+    border-radius: 20px/20px;
   }
 }

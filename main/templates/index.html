@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ----------------- -->
   <link rel="stylesheet" href="{% static 'main/static/css/air-datepicker.css' %}">
-  <!-- ----------------- -->
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_tablet.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_pc.css' %}">
@@ -26,7 +24,7 @@
   </div>
   <div class="info">
     <p class="phone">+7-912-324-86-32</p>
-    <p class="address">г. Пятигорск ул. Универститетская 55</p>
+    <p class="address">г. Пятигорск, ул. Универститетская 55</p>
   </div>
   <img src="{% static 'main/static/css/images/hotel_main.jpg' %}" alt="" class="background">
 </header>
@@ -49,7 +47,8 @@
           </div>
           <div class="roomStripes"></div>
         </div>
-        <div class="roomSleep">3 спальных места</div>
+        <div class="roomSleep">спальных мест: 3</div>
+        <div class="roomBathroom">Своя ванная: нет</div>
         <div class="roomPrice">1000₽</div>
       </div>
       <div class="room">
@@ -62,7 +61,8 @@
           </div>
           <div class="roomStripes"></div>
         </div>
-        <div class="roomSleep">3 спальных места</div>
+        <div class="roomSleep">спальных мест: 4</div>
+        <div class="roomBathroom">Своя ванная: нет</div>
         <div class="roomPrice">1000₽</div>
       </div>
       <div class="room">
@@ -75,7 +75,8 @@
           </div>
           <div class="roomStripes"></div>
         </div>
-        <div class="roomSleep">3 спальных места</div>
+        <div class="roomSleep">спальных мест: 3</div>
+        <div class="roomBathroom">Своя ванная: да</div>
         <div class="roomPrice">1000₽</div>
       </div>
       <div class="room">
@@ -88,7 +89,8 @@
           </div>
           <div class="roomStripes"></div>
         </div>
-        <div class="roomSleep">3 спальных места</div>
+        <div class="roomSleep">спальных мест: 5</div>
+        <div class="roomBathroom">Своя ванная: да</div>
         <div class="roomPrice">1000₽</div>
       </div>
       <div class="room">
@@ -101,7 +103,8 @@
           </div>
           <div class="roomStripes"></div>
         </div>
-        <div class="roomSleep">3 спальных места</div>
+        <div class="roomSleep">спальных мест: 3</div>
+        <div class="roomBathroom">Своя ванная: нет</div>
         <div class="roomPrice">1000₽</div>
       </div>
     </div>
@@ -112,14 +115,7 @@
 
 <main class="places">
   <p class="title">Общие места</p>
-  <swiper-container class="slider" 
-    pagination="true"
-    navigation="true"
-    autoplay="true"
-    autoplay-delay="15000"
-    loop="true"
-    speed="1000"
-   >
+  <swiper-container class="slider" pagination="true" navigation="true" autoplay="true" autoplay-delay="15000" loop="true" speed="1000">
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/kitchen.jpg' %}" alt=""></swiper-slide>
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
@@ -151,8 +147,8 @@
     </select>
   </div>
   <div class="booking__dates">
-    <label for="calendar">даты проживания</label>
-    <input class="calendar" id="calendar" type="text"></input>
+    <label for="calendar">даты проживания (сначала выберите номер)</label>
+    <input disabled class="calendar" id="calendar" type="text"></input>
   </div>
   <div class="booking__people">
     <label for="people">количество человек</label>
@@ -179,9 +175,8 @@
 <!-- ----------------- -->
 </div>
 
+<script src="{% static 'main/static/js/swiper-element-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/air-datepicker.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 <script src="{% static 'main/static/js/index.js' %}"></script>
 </body>
 </html>

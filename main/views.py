@@ -1,11 +1,17 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.http import HttpResponse
-from manager.models import bookings
+from manager.models import *
 import json
+import os
 
 class mainView(View):
   def get(self, request):
+    if (request.headers.get('SELECTED-DATES')):
+      try:
+        return HttpResponse(json.dumps(dates_of_rooms.objects.first().rooms))
+      except:
+        return HttpResponse('NO DATES')
     return render(request, 'main/templates/index.html', {})
   
   def post(self, requset):
@@ -17,4 +23,5 @@ class mainView(View):
         amount_of_residents = descriptions_of_booking['amount_of_residents'],
         phone_number = descriptions_of_booking['phone_number'],
       )
+      os.system('python C:\Code\djangoProjects\djangoHotelAlla\hotelAlla\main\static\mail.py')
       return HttpResponse('OK')

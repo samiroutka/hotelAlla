@@ -26,6 +26,11 @@ SECRET_KEY = 'django-insecure-rwn1w0y2wen9_o#*zs=3w)ric5!78#1tu&68)v$tt#s#1j++0z
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+# Для обработки https
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Application definition

@@ -15,6 +15,7 @@ document.addEventListener('click', (event) => {
 
 // Календари
 async function mainCalendar() { 
+  // Загрузка дат из базы
   async function getSelectedDates() { 
     let response = await fetch(url, {
       headers: {
@@ -29,7 +30,8 @@ async function mainCalendar() {
     }
   }
   let djangoSelectedDates = await getSelectedDates()
-
+  
+  // Установление дат для всех календарей 
   let calendarElements = document.querySelectorAll('.calendar')
   let calendars = []
   let current_date = new Date().toLocaleDateString().split('.').reverse().join('-')
@@ -74,7 +76,7 @@ async function mainCalendar() {
           'X-CSRFToken': token,
           'SAVE-DATES': 'TRUE'
         },
-        body: JSON.stringify(dates)
+        body: JSON.stringify(dates) 
       })
       response = await response.text()
       if (response != 'OK'){
@@ -82,6 +84,12 @@ async function mainCalendar() {
       }
     }
     saveDates()
+    // Показ менюшки
+    let saveMenu = document.querySelector('.saveMenu')
+    saveMenu.classList.remove('hidden')
+    setTimeout(() => {
+      saveMenu.classList.add('hidden')
+    }, 2000);
   })
   
 }

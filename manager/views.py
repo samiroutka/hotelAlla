@@ -17,10 +17,8 @@ class managerView(View):
       return HttpResponse('OK')
     elif (request.headers.get('SELECTED-DATES')):
       try:
-        print(dates_of_rooms.objects.first().rooms)
         return HttpResponse(json.dumps(dates_of_rooms.objects.first().rooms))
       except:
-        print('NO DATES')
         return HttpResponse('NO DATES')
     elif (login):
       login = False

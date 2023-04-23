@@ -9,6 +9,7 @@ body{
   padding: 0;
 
   font-family: Pinstripe;
+  font-weight: bolder;
 
   *{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -36,7 +37,6 @@ header{
 
   text-align: center;
   color: white;
-  font-weight: 900;
   font-size: 1.3em;
 
   .name{
@@ -89,181 +89,85 @@ header{
 
 .numbers{
 
-  &:hover{
-    cursor: grab;
-  }
-  &:active{
-    cursor: grabbing;
-  }
-
   .title{
     margin: 10vw 0 5vw 0;
   
     text-align: center;
     font-size: 3.5em;
   }
-  .rooms{
-    padding-bottom: 5vh;
-    width: 100%;
-    overflow-x: scroll;
   
-    display: flex;
-
-    &::-webkit-scrollbar{
-      display: none;
-    }
-    &::-webkit-scrollbar {
-      display: block;
-      height: 10px; 
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-    }
+  .rooms{
+    margin: 0 auto;
+    width: 85%;
   }
   .room{
-    margin: 0 10vw;
-    padding-bottom: 3vw;
-    width: 40vw;
-    height: 60vw;
-
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-shrink: 0;
-  
-    background-color: wheat;
-    border: 2px solid black;
+    margin-bottom: 5vh;
+    width: 100%;
+    height: 60vh;
+    box-sizing: border-box;
+    background-color: #ffc9664d;
     border-radius: 10px/10px;
-    transition: all .2s linear;
-
-    &:hover{
-      cursor: pointer;
-    }
-
-    *{
-      transition: all .2s linear;
-    }
-
-    // Увеличение room
-    &.enlarge{
-      padding-bottom: 0;
-      width: 125vw * 0.66;
-      height: 120vw;
-
-      $sliderRoomEnlargeWidth: 110vw * 0.66;
-      .roomSlider{
-        width: $sliderRoomEnlargeWidth;
-        height: 190vw * 0.66;
-        margin-bottom: 3%;
-        flex-grow: 1;
-      }
-      .roomImages{
-        height: 100%;
-      }
-      .roomImage{
-        width: $sliderRoomEnlargeWidth;
-        height: 100%;
-      }
-      .roomStripes{
-        width: $sliderRoomEnlargeWidth;
-        display: flex;
-      }
-
-      @keyframes appearance {
-        0%{
-          opacity: 0;
-        }
-        100%{
-          opacity: 1;
-        }
-      }
-      .roomSleep, .roomBathroom, .roomPrice{
-        display: block;
-        animation: appearance .2s linear;
-      }
-    }
-  }
-  .roomName{
-    text-align: center;
-    font-size: 2em;
-    user-select: none;
-  }
-  $roomSlider_width: 30vw;
-  $roomSlider_height: 45vw;
-  .roomSlider{
-    width: $roomSlider_width;
-    height: $roomSlider_height;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
     
-    border: 2px solid black;
-    border-radius: 5px/5px;
-  }
-  .roomImages{
-    width: fit-content;
-    height: 100%;
-    display: flex;
+    .room__title{
+      margin: 0;
+      padding: 5% 0;
+      height: 10%;
+      box-sizing: border-box;
 
-    transition: transform 0s;
-  }
-  .roomImage{
-    width: $roomSlider_width;
-    height: $roomSlider_height;
-    display: block;
-
-    object-fit: contain;
-    background-color: rgb(190, 172, 138);
-  }
-  .roomStripes{
-    height: 3%;
-    margin-top: 1%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-
-    & div{
-      height: 100%;
-      margin: 0 2%;
-      flex-grow: 1;
-
-      background-color: rgba(128, 128, 128, 0.5);
-      border-radius: 5px/5px;
-      animation: appearance .2s linear;
+      font-size: 2em;
+      text-align: center;
     }
-    & .selected{
-      background-color: black;
-    }
-  }
-  .roomSleep, .roomBathroom, .roomPrice{
-    display: none;
-    height: 10%;
+    .swiper{
+      margin: 3% auto;
+      width: 90%;
+      height: 66%;
+      box-sizing: border-box;
 
-    text-align: center;
-    font-size: 1.6em;
+      background-color: rgba(128, 128, 128, 0.3);
+      border-radius: 10px/10px; 
+      .swiper-button::after{
+        font-size: 1.5em;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .room__description{
+      margin: 0;
+      height: 6%;
+      box-sizing: border-box;
+
+      text-align: center;
+      font-size: 1.5em;
+    }
   }
 }
 
 /* --------------------------------- */
 
 .places{
+  padding: 3vw 0;
+
+  border-radius: 20px/20px;
+  background-color: rgb(215, 255, 215);
+
   .title{
-    margin: 10vw 0 5vw 0;
+    margin: 5vw 0;
   
     text-align: center;
     font-size: 3.5em;
   }
-  .slider{
+  swiper-container{
     width: 100%;
-    height: 40vh;
+    height: 38vh;
   }
   .sliderImage{
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background-color: rgba(255, 249, 238, 0.3);
+    background-color: rgba(128, 128, 128, 0.3);
   }
 
   .description{

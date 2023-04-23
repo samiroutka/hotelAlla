@@ -51,46 +51,6 @@ header{
     text-align: center;
     font-size: 3.5em;
   }
-  .room{
-    margin: 0 5vw;
-    padding-bottom: 5vh;
-    width: 30vh;
-    height: 45vh;
-
-    &.enlarge{
-      width: 90vh * 0.66;
-      height: 80vh;
-
-      $sliderRoomEnlargeWidth: 80vh * 0.66;
-      .roomSlider{
-        width: $sliderRoomEnlargeWidth;
-        height: 65vh * 0.66;
-      }
-      .roomImage{
-        width: $sliderRoomEnlargeWidth;
-      }
-      .roomStripes{
-        width: $sliderRoomEnlargeWidth;
-      }
-    }
-  }
-  $roomSlider_width: 25vh; 
-  $roomSlider_height: 33vh;
-  .roomSlider{
-    width: $roomSlider_width;
-    height: $roomSlider_height;
-  }
-  .roomImage{
-    width: $roomSlider_width;
-    height: $roomSlider_height;
-  }
-  .roomSleep, .roomBathroom, .roomPrice{
-    display: none;
-    height: 10%;
-
-    text-align: center;
-    font-size: 2.2em;
-  }
 }
 
 // ---------------------------------

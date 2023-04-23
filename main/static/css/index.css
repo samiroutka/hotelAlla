@@ -5,7 +5,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Pinstripe; }
+  font-family: Pinstripe;
+  font-weight: bolder; }
   body * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -29,7 +30,6 @@ header {
   position: relative;
   text-align: center;
   color: white;
-  font-weight: 900;
   font-size: 1.3em; }
   header .name {
     width: 90%;
@@ -67,136 +67,73 @@ header {
     object-position: 73%; }
 
 /* --------------------------------- */
-.numbers:hover {
-  cursor: grab; }
-.numbers:active {
-  cursor: grabbing; }
 .numbers .title {
   margin: 10vw 0 5vw 0;
   text-align: center;
   font-size: 3.5em; }
 .numbers .rooms {
-  padding-bottom: 5vh;
-  width: 100%;
-  overflow-x: scroll;
-  display: flex; }
-  .numbers .rooms::-webkit-scrollbar {
-    display: none; }
-  .numbers .rooms::-webkit-scrollbar {
-    display: block;
-    height: 10px; }
-  .numbers .rooms::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 20px; }
-.numbers .room {
-  margin: 0 10vw;
-  padding-bottom: 3vw;
-  width: 40vw;
-  height: 60vw;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  flex-shrink: 0;
-  background-color: wheat;
-  border: 2px solid black;
-  border-radius: 10px/10px;
-  transition: all .2s linear; }
-  .numbers .room:hover {
-    cursor: pointer; }
-  .numbers .room * {
-    transition: all .2s linear; }
-  .numbers .room.enlarge {
-    padding-bottom: 0;
-    width: 82.5vw;
-    height: 120vw; }
-    .numbers .room.enlarge .roomSlider {
-      width: 72.6vw;
-      height: 125.4vw;
-      margin-bottom: 3%;
-      flex-grow: 1; }
-    .numbers .room.enlarge .roomImages {
-      height: 100%; }
-    .numbers .room.enlarge .roomImage {
-      width: 72.6vw;
-      height: 100%; }
-    .numbers .room.enlarge .roomStripes {
-      width: 72.6vw;
-      display: flex; }
-@keyframes appearance {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-    .numbers .room.enlarge .roomSleep, .numbers .room.enlarge .roomBathroom, .numbers .room.enlarge .roomPrice {
-      display: block;
-      animation: appearance .2s linear; }
-.numbers .roomName {
-  text-align: center;
-  font-size: 2em;
-  user-select: none; }
-.numbers .roomSlider {
-  width: 30vw;
-  height: 45vw;
   margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid black;
-  border-radius: 5px/5px; }
-.numbers .roomImages {
-  width: fit-content;
-  height: 100%;
-  display: flex;
-  transition: transform 0s; }
-.numbers .roomImage {
-  width: 30vw;
-  height: 45vw;
-  display: block;
-  object-fit: contain;
-  background-color: #beac8a; }
-.numbers .roomStripes {
-  height: 3%;
-  margin-top: 1%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none; }
-  .numbers .roomStripes div {
-    height: 100%;
-    margin: 0 2%;
-    flex-grow: 1;
-    background-color: rgba(128, 128, 128, 0.5);
-    border-radius: 5px/5px;
-    animation: appearance .2s linear; }
-  .numbers .roomStripes .selected {
-    background-color: black; }
-.numbers .roomSleep, .numbers .roomBathroom, .numbers .roomPrice {
-  display: none;
-  height: 10%;
-  text-align: center;
-  font-size: 1.6em; }
+  width: 85%; }
+.numbers .room {
+  margin-bottom: 5vh;
+  width: 100%;
+  height: 60vh;
+  box-sizing: border-box;
+  background-color: #ffc9664d;
+  border-radius: 10px/10px; }
+  .numbers .room .room__title {
+    margin: 0;
+    padding: 5% 0;
+    height: 10%;
+    box-sizing: border-box;
+    font-size: 2em;
+    text-align: center; }
+  .numbers .room .swiper {
+    margin: 3% auto;
+    width: 90%;
+    height: 66%;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0.3);
+    border-radius: 10px/10px; }
+    .numbers .room .swiper .swiper-button::after {
+      font-size: 1.5em; }
+    .numbers .room .swiper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; }
+  .numbers .room .room__description {
+    margin: 0;
+    height: 6%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.5em; }
 
 /* --------------------------------- */
-.places .title {
-  margin: 10vw 0 5vw 0;
-  text-align: center;
-  font-size: 3.5em; }
-.places .slider {
-  width: 100%;
-  height: 40vh; }
-.places .sliderImage {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background-color: rgba(255, 249, 238, 0.3); }
-.places .description {
-  margin: 5vh auto;
-  margin-top: 2vh;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px; }
-  .places .description .description__title {
-    font-size: 1.3em; }
+.places {
+  padding: 3vw 0;
+  border-radius: 20px/20px;
+  background-color: #d7ffd7; }
+  .places .title {
+    margin: 5vw 0;
+    text-align: center;
+    font-size: 3.5em; }
+  .places swiper-container {
+    width: 100%;
+    height: 38vh; }
+  .places .sliderImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: rgba(128, 128, 128, 0.3); }
+  .places .description {
+    margin: 5vh auto;
+    margin-top: 2vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px; }
+    .places .description .description__title {
+      font-size: 1.3em; }
 
 /* --------------------------------- */
 .booking {

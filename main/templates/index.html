@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'main/static/css/swiper-bundle.min.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/air-datepicker.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_tablet.css' %}">
@@ -33,80 +34,60 @@
 
 <main class="numbers">
   <div class="title">Номера</div>
-  <div class="majorSlider" free-mode="true">
-    <div class="rooms">
-      <div class="room">
-        <div class="roomName">номер 1</div>
-        <div class="roomSlider">
-          <div class="roomImages">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-          </div>
-          <div class="roomStripes"></div>
+  <div class="rooms">
+    <div class="room">
+      <p class="room__title">номер 1</p>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
         </div>
-        <div class="roomSleep">спальных мест: 3</div>
-        <div class="roomBathroom">Своя ванная: нет</div>
-        <div class="roomPrice">1000₽</div>
+        <div class="swiper-button-next swiper-button"></div>
+        <div class="swiper-button-prev swiper-button"></div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="room">
-        <div class="roomName">номер 2</div>
-        <div class="roomSlider">
-          <div class="roomImages">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-          </div>
-          <div class="roomStripes"></div>
+      <p class="room__description">3 спальных места</p>
+      <p class="room__description">без ванной комнаты</p>
+      <p class="room__description">1000₽ за день</p>
+    </div>
+    <div class="room">
+      <p class="room__title">номер 2</p>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
         </div>
-        <div class="roomSleep">спальных мест: 4</div>
-        <div class="roomBathroom">Своя ванная: нет</div>
-        <div class="roomPrice">1000₽</div>
+        <div class="swiper-button-next swiper-button"></div>
+        <div class="swiper-button-prev swiper-button"></div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="room">
-        <div class="roomName">номер 3</div>
-        <div class="roomSlider">
-          <div class="roomImages">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-          </div>
-          <div class="roomStripes"></div>
+      <p class="room__description">3 спальных места</p>
+      <p class="room__description">без ванной комнаты</p>
+      <p class="room__description">1000₽ за день</p>
+    </div>
+    <div class="room">
+      <p class="room__title">номер 3</p>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
+          <div class="swiper-slide"><img src="{% static 'main/static/css/images/room1.jpg' %}" alt=""></div>
         </div>
-        <div class="roomSleep">спальных мест: 3</div>
-        <div class="roomBathroom">Своя ванная: да</div>
-        <div class="roomPrice">1000₽</div>
+        <div class="swiper-button-next swiper-button"></div>
+        <div class="swiper-button-prev swiper-button"></div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="room">
-        <div class="roomName">номер 4</div>
-        <div class="roomSlider">
-          <div class="roomImages">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-          </div>
-          <div class="roomStripes"></div>
-        </div>
-        <div class="roomSleep">спальных мест: 5</div>
-        <div class="roomBathroom">Своя ванная: да</div>
-        <div class="roomPrice">1000₽</div>
-      </div>
-      <div class="room">
-        <div class="roomName">номер 5</div>
-        <div class="roomSlider">
-          <div class="roomImages">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room2.jpg' %}" alt="" class="roomImage">
-            <img src="{% static 'main/static/css/images/room1.jpg' %}" alt="" class="roomImage">
-          </div>
-          <div class="roomStripes"></div>
-        </div>
-        <div class="roomSleep">спальных мест: 3</div>
-        <div class="roomBathroom">Своя ванная: нет</div>
-        <div class="roomPrice">1000₽</div>
-      </div>
+      <p class="room__description">3 спальных места</p>
+      <p class="room__description">без ванной комнаты</p>
+      <p class="room__description">1000₽ за день</p>
     </div>
   </div>
 </main>
@@ -115,7 +96,7 @@
 
 <main class="places">
   <p class="title">Общие места</p>
-  <swiper-container class="slider" pagination="true" navigation="true" autoplay="true" autoplay-delay="15000" loop="true" speed="1000">
+  <swiper-container class="slider" pagination="true" navigation="true" autoplay="true" autoplay-delay="10000" loop="true">
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/kitchen.jpg' %}" alt=""></swiper-slide>
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
     <swiper-slide><img class="sliderImage" src="{% static 'main/static/css/images/room2.jpg' %}" alt=""></swiper-slide>
@@ -175,6 +156,7 @@
 <!-- ----------------- -->
 </div>
 
+<script src="{% static 'main/static/js/swiper-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/swiper-element-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/air-datepicker.js' %}"></script>
 <script src="{% static 'main/static/js/index.js' %}"></script>

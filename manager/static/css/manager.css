@@ -11,34 +11,28 @@ body {
 .hidden {
   display: none; }
 
-nav {
+.navigation {
   width: 100%;
-  height: 3vw;
+  height: 5vw;
   display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: rgba(128, 128, 128, 0.1); }
-  nav p {
+  align-items: center;
+  background-color: #d7ffd7; }
+  .navigation p {
     margin: 0;
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
     text-align: center;
-    line-height: 100%;
-    cursor: pointer;
-    user-select: none; }
-  nav .nav__bookings {
-    border-right: 5px solid gray; }
-  nav .nav__base {
-    border-left: 5px solid gray; }
-  nav .nav__bookings:hover, nav .nav__base:hover {
-    background-color: rgba(128, 128, 128, 0.3);
-    transition: all .1s linear; }
+    font-size: 2em;
+    cursor: pointer; }
+    .navigation p:hover {
+      background-color: #718571;
+      transition: all .1s linear; }
 
 .bookings .title {
+  text-align: center;
   font-size: 2.5em; }
 .bookings .allBookings {
   margin: 0 auto;
@@ -49,42 +43,52 @@ nav {
   .bookings .allBookings .booking, .bookings .allBookings .booking__titles {
     display: flex; }
   .bookings .allBookings .booking {
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
     background-color: antiquewhite;
     border-radius: 10px/10px; }
   .bookings .allBookings p {
     width: 20%;
     font-size: 1.5em;
+    word-break: break-word;
     text-align: center; }
   .bookings .allBookings .booking__titles p {
     font-size: 2em; }
 
+.base .title {
+  text-align: center;
+  font-size: 2.5em; }
 .base .calendars {
   margin: 0 auto;
   width: 95%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap; }
 .base .calendar__wrapper {
-  margin-bottom: 5vw;
-  width: 22%; }
+  margin-bottom: 3vw;
+  width: 30%; }
+  .base .calendar__wrapper .air-datepicker {
+    margin: 0 auto; }
 .base .calendar__title {
-  font-size: 1.5em; }
+  margin: 3% 0;
+  text-align: center;
+  font-size: 2em; }
 .base input {
   display: none; }
 .base .save {
-  margin: 0 auto;
+  margin: 3% auto;
   display: block;
   font-size: 2em; }
 .base .saveMenu {
-  padding: 5vh;
+  padding: 3vh;
   width: 90%;
+  box-sizing: border-box;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  font-size: 1.5em;
+  color: white;
+  font-size: 2em;
   text-align: center;
   background-color: green;
   border-radius: 20px/20px; }

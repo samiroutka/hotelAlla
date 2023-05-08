@@ -4,10 +4,9 @@ let token = document.querySelector('[name=csrfmiddlewaretoken]').value
 
 // Предзагрузка----------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.querySelector('.preloading').style.display = 'none'
-    document.querySelector('.wrapper').style.display = 'block'
-  }, 1000);
+  console.log(getComputedStyle(document.querySelector('body')).fontFamily)
+  document.querySelector('.preloading').style.display = 'none'
+  document.querySelector('.wrapper').style.display = 'block'
 })
 
 // Swiper
@@ -35,6 +34,7 @@ clearFields()
 
 // Календарь (main .booking)------------------------------------
 async function mainCalendar(){
+  // Получение дат из с сервера/базы данных
   async function getSelectedDates() {
     let response = await fetch(url, {
       headers: {
@@ -90,19 +90,37 @@ async function mainCalendar(){
     }
   })
 
-  // Проверка на выбор номера
+  // Очистка полей при смене/выборе номера
   let room = document.querySelector('.booking__room select')
+  let roomBeds = {
+    1: [1, 2, 3],
+    2: [1, 2, 3],
+    3: [1, 2],
+    4: [1, 2, 3, 4],
+    5: [1, 2, 3],
+    6: [1, 2],
+    7: [1, 2, 3],
+  }
   room.addEventListener('change', () => {
     if (room.value){
       document.querySelector('.booking__dates input').removeAttribute('disabled')
       document.querySelector('.booking__dates input').value = ''
+      // Изменение поля "количество человек"
+      document.querySelector('.booking__people select').removeAttribute('disabled')
+      document.querySelector('.booking__people select').value = ''
+      for (let element of document.querySelectorAll('#people option')){
+        element.setAttribute('hidden', '')
+      }
+      for (let element of roomBeds[document.querySelector('#room').value]){
+        document.querySelector(`#people option[value="${element}"]`).removeAttribute('hidden')
+      }
       calendar.clear()
     }
   })
 }
 mainCalendar()
 
-// Запрашивание звонка----------------------------------------
+// Запрашивание звонка
 bookingBtn.addEventListener('click', () => {
   // Проверка на заполнение всех полей
   let room = document.querySelector('.booking__room select').value

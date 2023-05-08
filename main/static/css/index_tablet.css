@@ -27,12 +27,38 @@
     header .info * {
       margin: 0; }
 
-  .places .description {
-    margin-top: 10vh;
-    flex-direction: row; }
-    .places .description .description__block {
-      box-sizing: border-box;
-      padding: 0 3vh; }
+  .numbers .title {
+    margin: 3vw 0; }
+  .numbers .rooms {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5%; }
+    .numbers .rooms .room__title {
+      padding: 2% 0;
+      font-size: 1.8em; }
+  .numbers .room {
+    width: 30%;
+    height: 80vh; }
+    .numbers .room .room__description {
+      font-size: 1em; }
+
+  .places {
+    padding: 1vw 0;
+    padding-bottom: 3vw; }
+    .places .title {
+      margin: 2vw 0; }
+    .places .slider {
+      margin: 0 auto;
+      width: 80%;
+      height: 70%;
+      border-radius: 20px/20px; }
+    .places .description {
+      margin-top: 10vh;
+      flex-direction: row; }
+      .places .description .description__block {
+        box-sizing: border-box;
+        padding: 0 3vh; }
 
   .booking {
     display: flex;
@@ -44,6 +70,8 @@
       width: 18%; }
       .booking div * {
         font-size: 1.2em; }
+      .booking div label {
+        font-size: 1.1em; }
     .booking .booking__room, .booking .booking__people {
       width: 10%; }
     .booking input {
@@ -59,5 +87,4 @@
     .booking .fieldsMenu {
       padding: 1vw; }
     .booking .popUpMenu {
-      padding: 1vw;
-      top: 1vw; } }
+      padding: 1vw; } }

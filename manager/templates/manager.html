@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'manager/static/css/air-datepicker.css' %}">
   <link rel="stylesheet" href="{% static 'manager/static/css/manager.css' %}">
+  <link rel="stylesheet" href="{% static 'manager/static/css/manager_mobile.css' %}">
   <title>Manager</title>
 </head>
 <body>
 {% csrf_token %}
 
-<nav>
+<nav class="navigation">
   <p class="nav__bookings">Бронирования</p>
   <p class="nav__base">База номеров</p>
 </nav>
@@ -39,7 +40,7 @@
 </main>
 
 <main class="base hidden">
-  <h1>База номеров</h1>
+  <h1 class="title">База номеров</h1>
   <div class="calendars">
     <div class="calendar__wrapper">
       <div class="calendar__title">номер 1</div>
@@ -67,10 +68,6 @@
     </div>
     <div class="calendar__wrapper">
       <div class="calendar__title">номер 7</div>
-      <input type="text" class="calendar" id="calendar">
-    </div>
-    <div class="calendar__wrapper">
-      <div class="calendar__title">номер 8</div>
       <input type="text" class="calendar" id="calendar">
     </div>
   </div>

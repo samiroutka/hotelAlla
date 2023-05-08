@@ -100,7 +100,7 @@ header {
     .numbers .room .swiper img {
       width: 100%;
       height: 100%;
-      object-fit: contain; }
+      object-fit: cover; }
   .numbers .room .room__description {
     margin: 0;
     height: 6%;
@@ -126,12 +126,13 @@ header {
     object-fit: contain;
     background-color: rgba(128, 128, 128, 0.3); }
   .places .description {
-    margin: 5vh auto;
-    margin-top: 2vh;
+    margin: 0 auto;
     width: 90%;
     display: flex;
     flex-direction: column;
     font-size: 20px; }
+    .places .description .description__block {
+      padding: 5% 0; }
     .places .description .description__title {
       font-size: 1.3em; }
 
@@ -148,14 +149,20 @@ header {
   .booking div {
     display: flex;
     flex-direction: column; }
-    .booking div * {
-      font-size: 1.3em; }
+    .booking div label {
+      font-size: 4vw; }
+  .booking select {
+    font-size: 1.2em;
+    cursor: pointer; }
   .booking input {
     width: 100%;
     height: 7vw;
-    font-size: 1.2em; }
+    font-size: 1.2em;
+    cursor: pointer; }
   .booking .booking__submit {
-    height: auto; }
+    padding: 1% 0;
+    height: auto;
+    cursor: pointer; }
   .booking__room {
     grid-area: room; }
   .booking__dates {
@@ -170,33 +177,33 @@ header {
   .booking .fieldsMenu {
     padding: 3vw;
     width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
     position: fixed;
     z-index: 10;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 900;
     color: white;
     border-radius: 20px/20px;
     bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: #960000;
     animation: popUpMenuAnimation 2s linear; }
   .booking .popUpMenu {
     padding: 3vw;
     width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
     position: fixed;
     z-index: 10;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 900;
     color: white;
     border-radius: 20px/20px;
-    top: 5vw;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
     background-color: #008200;
     animation: popUpMenuAnimation 5s linear; }
 @keyframes popUpMenuAnimation {

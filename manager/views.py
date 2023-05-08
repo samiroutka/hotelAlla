@@ -8,7 +8,7 @@ from .models import *
 
 
 login = False
-password = 'allaroma'
+password = '0912'
 
 class managerView(View):
   def get(self, request):

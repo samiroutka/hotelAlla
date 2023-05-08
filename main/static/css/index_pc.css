@@ -33,25 +33,29 @@
     margin: 10vh 0 5vh 0;
     text-align: center;
     font-size: 3.5em; }
+  .numbers .rooms .room__title {
+    font-size: 2.5em; }
+  .numbers .room .room__description {
+    font-size: 1.5em; }
 
-  .places .title {
-    margin: 10vh 0 5vh 0;
-    text-align: center;
-    font-size: 3.5em; }
-  .places .slider {
-    margin: 0 auto;
-    width: 80%;
-    height: 70%; }
-  .places .description {
-    margin-top: 10vh;
-    flex-direction: row;
-    font-size: 30px; }
-    .places .description .description__block {
-      box-sizing: border-box;
-      padding: 0 3vh; }
+  .places {
+    padding: 2vh 0; }
+    .places .title {
+      margin: 5vh 0;
+      text-align: center;
+      font-size: 3.5em; }
+    .places .description {
+      margin-top: 10vh;
+      flex-direction: row;
+      font-size: 30px; }
+      .places .description .description__block {
+        box-sizing: border-box;
+        padding: 0 3vh; }
 
   .booking div * {
-    font-size: 1.6em; }
+    font-size: 1.3em; }
+  .booking div label {
+    font-size: 1.2em; }
   .booking .booking__dates {
     width: 30%; }
     .booking .booking__dates input {

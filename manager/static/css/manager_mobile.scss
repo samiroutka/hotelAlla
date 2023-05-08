@@ -1,0 +1,30 @@
+@media (max-width: 767px) {
+
+// ------------------------------------
+
+.navigation{
+  height: 10vw;
+}
+
+// --------------------
+
+.bookings{
+  .allBookings{
+    .booking__titles p{
+      font-size: 1em;
+    }
+  }
+}
+
+// --------------------
+
+.base{
+  .calendars{
+    justify-content: center;
+  }
+  .calendar__wrapper{
+    width: 90%;
+  }
+}
+
+}

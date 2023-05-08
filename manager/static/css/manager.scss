@@ -20,38 +20,31 @@ body{
 
 // ---------------------------------
 
-nav{
+.navigation{
   width: 100%;
-  height: 3vw;
+  height: 5vw;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  align-items: center;
 
-  background-color: rgba(128, 128, 128, 0.1);
+  background-color: rgb(215, 255, 215);
 
   p{
     margin: 0;
     width: 50%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; // Для выравнивания текста внутри paragraph
+    justify-content: center; // Для выравнивания текста внутри paragraph
+    align-items: center; // Для выравнивания текста внутри paragraph
 
-    font-size: 1.5em;
     text-align: center;
-    line-height: 100%;
+    font-size: 2em;
+
     cursor: pointer;
-    user-select: none;
-  }
-  .nav__bookings{
-    border-right: 5px solid rgb(128, 128, 128);
-  }
-  .nav__base{
-    border-left: 5px solid rgb(128, 128, 128);
-  }
-  .nav__bookings:hover, .nav__base:hover{
-    background-color: rgba(128, 128, 128, 0.3);
-    transition: all .1s linear;
+    
+    &:hover{
+      background-color: rgb(113, 133, 113);
+      transition: all .1s linear;
+    }
   }
 }
 
@@ -59,6 +52,7 @@ nav{
 
 .bookings{
   .title{
+    text-align: center;
     font-size: 2.5em;
   }
   .allBookings{
@@ -72,7 +66,7 @@ nav{
       display: flex;
     }
     .booking{
-      margin-bottom: 3vw;
+      margin-bottom: 1vw;
 
       background-color: antiquewhite;
       border-radius: 10px/10px;
@@ -81,6 +75,7 @@ nav{
       width: 20%;
   
       font-size: 1.5em;
+      word-break: break-word;
       text-align: center;
     }
     .booking__titles p{
@@ -92,39 +87,52 @@ nav{
 // ---------------------------------
 
 .base{
+  .title{
+    text-align: center;
+    font-size: 2.5em;
+  }
   .calendars{
     margin: 0 auto;
     width: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
   }
   .calendar__wrapper{
-    margin-bottom: 5vw;
-    width: 22%;
+    margin-bottom: 3vw;
+    width: 30%;
+
+    .air-datepicker{
+      margin: 0 auto;
+    }
   }
   .calendar__title{
-    font-size: 1.5em;
+    margin: 3% 0;
+
+    text-align: center;
+    font-size: 2em;
   }
   input{
     display: none;
   }
   .save{
-    margin: 0 auto;
+    margin: 3% auto;
     display: block;
 
     font-size: 2em;
   }
   .saveMenu{
-    padding: 5vh;
+    padding: 3vh;
     width: 90%;
+    box-sizing: border-box;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
 
-    font-size: 1.5em;
+    color: white;
+    font-size: 2em;
     text-align: center;
   
     background-color: green;

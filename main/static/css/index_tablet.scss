@@ -123,7 +123,8 @@ header{
     width: 25%;
   }
   .booking__submit{
-    width: 40%;
+    padding: .5% 0;
+    width: 30%;
 
     font-size: 2vw;
   }
@@ -133,6 +134,12 @@ header{
   .popUpMenu{
     padding: 1vw;
   }
+}
+
+// ----------------------
+
+.map{
+  height: 50vh;
 }
 
 }

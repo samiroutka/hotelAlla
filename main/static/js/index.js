@@ -3,8 +3,8 @@ let url = document.location.href
 let token = document.querySelector('[name=csrfmiddlewaretoken]').value
 
 // Предзагрузка----------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  console.log(getComputedStyle(document.querySelector('body')).fontFamily)
+let test_element = document.querySelector('.title')
+window.addEventListener('load', () => {
   document.querySelector('.preloading').style.display = 'none'
   document.querySelector('.wrapper').style.display = 'block'
 })
@@ -20,6 +20,23 @@ new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+// Плавное появление номеров
+let all_rooms = document.querySelectorAll('.room')
+let i = 0
+let observer = new IntersectionObserver((entries) => {
+  for (entry of entries) {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1
+      entry.target.style.transform = 'translateX(0)'
+      observer.unobserve(entry.target)
+    }
+  }
+}, {threshold: .6})
+
+for (room of all_rooms) {
+  observer.observe(room)
+}
 
 // Очищение полей формы
 let bookingBtn = document.querySelector('.booking__submit')
@@ -164,4 +181,3 @@ bookingBtn.addEventListener('click', () => {
     }, parseFloat(getComputedStyle(fieldsMenu)['animationDuration'])*1000);
   }
 })
-

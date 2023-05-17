@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'main/static/css/swiper-bundle.min.css' %}">
-  <link rel="stylesheet" href="{% static 'main/static/css/air-datepicker.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_tablet.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_pc.css' %}">
-  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'main/static/css/swiper-bundle.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/static/css/air-datepicker.css' %}">
+  <title>Гостевой дом Алла</title>
 </head>
 <body>
 {% csrf_token %}
@@ -203,7 +203,6 @@
   </div>
 </main>
 
-
 <!-- ------------------------------------------------------------ -->
 
 <main class="booking">
@@ -245,8 +244,12 @@
   </div>
 </main>
 <!-- ----------------- -->
+
+<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2868.233987047558!2d43.05471097497224!3d44.037221727510754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4057762e3fdc5f1d%3A0x6846145286034ce2!2z0KPQvdC40LLQtdGA0YHQuNGC0LXRgtGB0LrQsNGPINGD0LsuLCA1NSwg0J_Rj9GC0LjQs9C-0YDRgdC6LCDQodGC0LDQstGA0L7Qv9C-0LvRjNGB0LrQuNC5INC60YDQsNC5LCAzNTc1MDI!5e0!3m2!1sru!2sru!4v1684057631725!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 </div>
 
+<script src="https://mapgl.2gis.com/api/js/v1"></script>
 <script src="{% static 'main/static/js/swiper-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/swiper-element-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/fslightbox.js' %}"></script>

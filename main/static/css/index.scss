@@ -105,8 +105,15 @@ header{
     width: 100%;
     height: 60vh;
     box-sizing: border-box;
+    opacity: 0;
+    transform: translateX(10%);
+    transition: all .5s linear;
     background-color: #ffc9664d;
     border-radius: 10px/10px;
+
+    .visible{
+      opacity: 1;
+    }
     
     .room__title{
       margin: 0;
@@ -223,9 +230,11 @@ header{
     cursor: pointer;
   }
   .booking__submit{
-    padding: 1% 0;
+    padding: 2% 0;
     height: auto;
 
+    border: 1px black solid;
+    border-radius: 10px/10px;
     cursor: pointer;
   }
 
@@ -296,7 +305,12 @@ header{
   }
 }
 
+// ----------------------
 
-
+.map{
+  margin-top: 1vh;
+  width: 100%;
+  height: 40vh;
+}
 
 

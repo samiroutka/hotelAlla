@@ -10,6 +10,7 @@
     z-index: 2; }
     header .name img {
       width: 10%;
+      transform: scale(1.5, 1.5);
       object-fit: contain; }
     header .name .title {
       width: 85%;

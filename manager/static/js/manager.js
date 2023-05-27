@@ -22,12 +22,7 @@ async function mainCalendar() {
         'SELECTED-DATES': 'TRUE'
       }
     })
-    try{
-      return await response.json()
-    } 
-    catch{
-      return false
-    }
+    return await response.json()
   }
   let djangoSelectedDates = await getSelectedDates()
   

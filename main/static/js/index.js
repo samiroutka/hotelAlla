@@ -174,6 +174,8 @@ bookingBtn.addEventListener('click', () => {
     }
     postBooking()
     clearFields()
+    // Клик яндекс метрики
+    ym(93818702,'reachGoal','yandexClick')
   } else{
     let fieldsMenu = document.querySelector('.fieldsMenu')
     fieldsMenu.classList.remove('hidden')

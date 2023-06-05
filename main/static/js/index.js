@@ -2,13 +2,6 @@
 let url = document.location.href
 let token = document.querySelector('[name=csrfmiddlewaretoken]').value
 
-// Предзагрузка----------------------------------------
-let test_element = document.querySelector('.title')
-window.addEventListener('load', () => {
-  document.querySelector('.preloading').style.display = 'none'
-  document.querySelector('.wrapper').style.display = 'block'
-})
-
 // Swiper
 new Swiper(".mySwiper", {
   pagination: {
@@ -32,7 +25,7 @@ let observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target)
     }
   }
-}, {threshold: .6})
+}, {threshold: .3})
 
 for (room of all_rooms) {
   observer.observe(room)

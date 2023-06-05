@@ -33,10 +33,6 @@
 <body>
 {% csrf_token %}
 
-<p class="preloading" style="margin: 0; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 5vw; font-family: 'Courier New', Courier, monospace;">загрузка ...</p>
-
-<div class="wrapper" style="display: none;">
-<!-- ----------------- -->
 <header>
   <div class="name">
     <img src="{% static 'main/static/css/images/logo.png' %}" alt="" class="logo">
@@ -153,7 +149,7 @@
         <div class="swiper-pagination"></div>
       </div>
       <p class="room__description">3-х местный номер</p>
-      <p class="room__description">со своей ванной комнатой и балконом</p>
+      <p class="room__description">со своей ванной комнатой</p>
       <p class="room__description">2000₽-2200₽</p>
     </div>
     <div class="room">
@@ -257,11 +253,8 @@
     <span>Спасибо большое! Мы вам перезвоним в течении нескольких часов</span>
   </div>
 </main>
-<!-- ----------------- -->
 
 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2868.233987047558!2d43.05471087497219!3d44.037221727510754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4057762e3fdc5f1d%3A0x109c3366b93a0dbb!2z0JDQu9C70LA!5e0!3m2!1sru!2sru!4v1685202077357!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-</div>
 
 <script src="https://mapgl.2gis.com/api/js/v1"></script>
 <script src="{% static 'main/static/js/swiper-bundle.min.js' %}"></script>

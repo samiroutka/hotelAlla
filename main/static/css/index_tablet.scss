@@ -1,5 +1,9 @@
 @media (min-width: 665px) {
 
+$titleSize: 2.5em;
+
+// ----------------------
+
 header{
   .name{
     margin-left: 5vh;
@@ -18,7 +22,7 @@ header{
     .title{
       width: 85%;
       text-align: start;
-      font-size: 4vw;
+      font-size: 1em;
     }
   }
   .info{
@@ -30,7 +34,7 @@ header{
     width: 40%;
 
     text-align: end;
-    font-size: 1em;
+    font-size: .7em;
 
     *{
       margin: 0;
@@ -43,6 +47,8 @@ header{
 .numbers{
   .title{
     margin: 3vw 0;
+
+    font-size: $titleSize;
   }
   .rooms{
     display: flex;
@@ -53,7 +59,7 @@ header{
     .room__title{
       padding: 2% 0;
 
-      font-size: 1.8em;
+      font-size: 1.5em;
     }
   }
   .room{
@@ -74,6 +80,8 @@ header{
 
   .title{
     margin: 2vw 0;
+
+    font-size: $titleSize;
   }
   .slider{
     margin: 0 auto;
@@ -85,6 +93,8 @@ header{
   .description{  
     margin-top: 10vh;
     flex-direction: row;
+
+    font-size: 1em;
 
     .description__block{
       box-sizing: border-box;

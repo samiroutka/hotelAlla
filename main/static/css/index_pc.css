@@ -19,23 +19,20 @@
 
   .numbers .title {
     margin: 10vh 0 5vh 0;
-    text-align: center;
-    font-size: 3.5em; }
+    text-align: center; }
   .numbers .rooms .room__title {
-    font-size: 2.5em; }
+    font-size: 1.7em; }
   .numbers .room .room__description {
-    font-size: 1.5em; }
+    font-size: 1.1em; }
 
   .places {
     padding: 2vh 0; }
     .places .title {
       margin: 5vh 0;
-      text-align: center;
-      font-size: 3.5em; }
+      text-align: center; }
     .places .description {
       margin-top: 10vh;
-      flex-direction: row;
-      font-size: 30px; }
+      flex-direction: row; }
       .places .description .description__block {
         box-sizing: border-box;
         padding: 0 3vh; }

@@ -1,11 +1,10 @@
 
 @media (min-width: 1200px) {
-  
+
 // ---------------------------------
 
 header{
   height: 50vh;
-
   .name{
     .title{
       width: 85%;
@@ -23,7 +22,6 @@ header{
 
     text-align: end;
     font-size: 1em;
-
     *{
       margin: 0;
     }
@@ -37,17 +35,15 @@ header{
     margin: 10vh 0 5vh 0;
   
     text-align: center;
-    font-size: 3.5em;
   }
-
   .rooms{
     .room__title{
-      font-size: 2.5em;
+      font-size: 1.7em;
     }
   }
   .room{
     .room__description{
-      font-size: 1.5em;
+      font-size: 1.1em;
     }
   }
 }
@@ -56,19 +52,14 @@ header{
 
 .places{
   padding: 2vh 0;
-
   .title{
     margin: 5vh 0;
   
     text-align: center;
-    font-size: 3.5em;
   }
   .description{
     margin-top: 10vh;
     flex-direction: row;
-  
-    font-size: 30px;
-
     .description__block{
       box-sizing: border-box;
       padding: 0 3vh;
@@ -89,7 +80,6 @@ header{
   }
   .booking__dates{
     width: 30%;
-
     input{
       font-size: 1.6em;
     }

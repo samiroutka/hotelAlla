@@ -4,6 +4,7 @@ let token = document.querySelector('[name=csrfmiddlewaretoken]').value
 
 // Swiper
 new Swiper(".mySwiper", {
+  loop: true,
   pagination: {
     el: ".swiper-pagination",
     type: "progressbar",

@@ -2,20 +2,7 @@
   header {
     height: 50vh; }
     header .name .title {
-      width: 85%;
-      text-align: start;
-      font-size: 6vh; }
-    header .info {
-      margin: 0 auto;
-      position: absolute;
-      top: 5%;
-      right: 5%;
-      z-index: 2;
-      width: 40%;
-      text-align: end;
-      font-size: 1em; }
-      header .info * {
-        margin: 0; }
+      font-size: 2em; }
 
   .numbers .title {
     margin: 10vh 0 5vh 0;

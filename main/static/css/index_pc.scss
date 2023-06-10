@@ -7,23 +7,7 @@ header{
   height: 50vh;
   .name{
     .title{
-      width: 85%;
-      text-align: start;
-      font-size: 6vh;
-    }
-  }
-  .info{
-    margin: 0 auto;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    z-index: 2;
-    width: 40%;
-
-    text-align: end;
-    font-size: 1em;
-    *{
-      margin: 0;
+      font-size: 2em;
     }
   }
 }

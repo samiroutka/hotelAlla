@@ -1,32 +1,26 @@
 @media (min-width: 665px) {
-  header .name {
-    margin-left: 5vh;
-    width: 40%;
-    height: 20%;
+  header {
+    height: 40vh;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    top: 10%;
-    z-index: 2; }
-    header .name img {
-      width: 10%;
-      transform: scale(1.5, 1.5);
-      object-fit: contain; }
-    header .name .title {
-      width: 85%;
-      text-align: start;
-      font-size: 1em; }
-  header .info {
-    margin: 0 auto;
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    z-index: 2;
-    width: 40%;
-    text-align: end;
-    font-size: .7em; }
-    header .info * {
-      margin: 0; }
+    font-size: 1em; }
+    header .name {
+      margin: 0;
+      padding-top: 1%;
+      width: 35%;
+      height: fit-content; }
+      header .name img {
+        width: 15%; }
+      header .name .title {
+        font-size: 2.7vw; }
+    header .info {
+      margin: 0;
+      padding-top: 1%;
+      width: 35%;
+      height: fit-content;
+      padding-top: 2%;
+      margin-right: 2%;
+      text-align: end; }
 
   .numbers .title {
     margin: 3vw 0;

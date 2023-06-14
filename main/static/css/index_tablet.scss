@@ -1,6 +1,6 @@
 @media (min-width: 665px) {
 
-$titleSize: 2.5em;
+$titleSize: 2.2em;
 
 // ----------------------
 
@@ -49,9 +49,7 @@ header{
     gap: 5%;
 
     .room__title{
-      padding: 2% 0;
-
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
   }
   .room{
@@ -59,7 +57,7 @@ header{
     height: 80vh;
 
     .room__description{
-      font-size: 1em;
+      font-size: .9em;
     }
   }
 }

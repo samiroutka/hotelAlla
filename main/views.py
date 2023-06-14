@@ -23,5 +23,6 @@ class mainView(View):
         amount_of_residents = descriptions_of_booking['amount_of_residents'],
         phone_number = descriptions_of_booking['phone_number'],
       )
-      os.system('python C:\Code\djangoProjects\djangoHotelAlla\hotelAlla\main\static\mail.py')
+      
+      os.system(f'python {os.getcwd()}/main/static/mail.py') # на ubuntu-сервере вместо \ пишется /
       return HttpResponse('OK')

@@ -10,6 +10,24 @@ from .models import *
 login = False
 password = '33330'
 
+def create_initial_prices():
+  if prices.objects.first():
+    print('OK')
+  else:
+    print('CREATING ...')
+    initial_price = 2000
+    initial_json_data = {
+      1: initial_price,
+      2: initial_price,
+      3: initial_price,
+      4: initial_price,
+      5: initial_price,
+      6: initial_price,
+      7: initial_price,
+      8: initial_price,
+    }
+    prices.objects.create(prices = initial_json_data)
+
 class managerView(View):
   def get(self, request):
     global login, password
@@ -42,8 +60,10 @@ class managerView(View):
         return HttpResponse('NO DATES')
     elif (login):
       login = False
+      create_initial_prices()
       return render(request, 'manager/templates/manager.html', {
-        'bookings': bookings.objects.order_by('date_of_booking')[::-1]
+        'bookings': bookings.objects.order_by('date_of_booking')[::-1],
+        'prices': prices.objects.first().prices
       })
     else:
       return render(request, 'manager/templates/password.html', {})
@@ -53,8 +73,12 @@ class managerView(View):
       # Добавление дат в базу данных
       try:
         date = dates_of_rooms.objects.first()
-        date.rooms = json.loads(request.body)
+        date.rooms = json.loads(request.body)['dates']
         date.save()
       except:
-        dates_of_rooms.objects.create(rooms = json.loads(request.body))
+        dates_of_rooms.objects.create(rooms = json.loads(request.body)['dates'])
+      # Сохранение цен
+      data_of_prices = prices.objects.first()
+      data_of_prices.prices = json.loads(request.body)['prices']
+      data_of_prices.save()  
       return HttpResponse('OK')

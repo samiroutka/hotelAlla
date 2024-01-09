@@ -63,6 +63,11 @@ async function mainCalendar() {
     for (let calendar of calendars){
       dates[String(calendars.indexOf(calendar))] = getDates(calendar)
     }
+    let prices_inputs = document.querySelectorAll('.prices_input')
+    let prices = {}
+    for (let prices_input of prices_inputs){
+      prices[String(Array.from(prices_inputs).indexOf(prices_input)+1)] = Number(prices_input.value)
+    }
     
     async function saveDates(){
       let response = await fetch(url, {
@@ -71,7 +76,7 @@ async function mainCalendar() {
           'X-CSRFToken': token,
           'SAVE-DATES': 'TRUE'
         },
-        body: JSON.stringify(dates) 
+        body: JSON.stringify({dates: dates, prices: prices}) 
       })
       response = await response.text()
       if (response != 'OK'){

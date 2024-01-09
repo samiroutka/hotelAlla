@@ -9,3 +9,6 @@ class bookings(models.Model):
 
 class dates_of_rooms(models.Model):
   rooms = models.JSONField(default='{}')
+
+class prices(models.Model):
+  prices = models.JSONField(default='{}')

@@ -219,6 +219,7 @@ header{
     flex-direction: column;
 
     label{
+      margin-bottom: 5%;
       font-size: 4vw;
     }
   }
@@ -235,7 +236,8 @@ header{
     cursor: pointer;
   }
   .booking__submit{
-    padding: 2% 0;
+    padding: 2% 5%;
+    width: fit-content;
     height: auto;
 
     border: 1px black solid;

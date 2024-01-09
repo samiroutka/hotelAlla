@@ -96,10 +96,10 @@ header{
 // ---------------------------------
 .booking{
   display: flex;
-  justify-content: space-between;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: end;
   flex-wrap: wrap;
+  grid-gap: 2vw;
 
   div{
     width: 18%;
@@ -110,8 +110,11 @@ header{
       font-size: 1.1em;
     }
   }
-  .booking__room, .booking__people{
-    width: 10%;
+  .booking__room{
+    width: 15%;
+  } 
+  .booking__people{
+    width: 8%;
   }
   input{
     height: auto;

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="icon" type="image/x-icon" href="{% static 'main/static/css/images/favicon.ico' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index.css' %}">
   <link rel="stylesheet" href="{% static 'main/static/css/index_tablet.css' %}">
@@ -217,7 +218,7 @@
 <main class="booking">
   <div class="booking__room booking__element">
     <label for="room">номер</label>
-    <select id="room">
+    <select id="room" class="form-select">
       <option value="1">эконом 1</option>
       <option value="2">эконом 2</option>
       <option value="3">люкс 1</option>
@@ -230,11 +231,11 @@
   </div>
   <div class="booking__dates booking__element">
     <label for="calendar">даты проживания</label>
-    <input disabled class="calendar" id="calendar" type="text"></input>
+    <input disabled class="calendar form-control" id="calendar" type="text"></input>
   </div>
   <div class="booking__people booking__element">
     <label for="people">количество человек</label>
-    <select disabled id="people">
+    <select disabled id="people" class="form-select">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -243,9 +244,9 @@
   </div>
   <div class="booking__phone booking__element">
     <label for="phone">ваш номер телефона</label>
-    <input type="tel" id="phone">
+    <input type="tel" class="form-control" id="phone">
   </div>
-  <input class="booking__submit" type="submit" value="Запросить звонок">
+  <button class="booking__submit btn btn-primary" type="submit">Запросить звонок</button>
   <div class="fieldsMenu hidden">
     <span>Заполните все поля</span>
   </div>
@@ -256,6 +257,7 @@
 
 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2868.233987047558!2d43.05471087497219!3d44.037221727510754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4057762e3fdc5f1d%3A0x109c3366b93a0dbb!2z0JDQu9C70LA!5e0!3m2!1sru!2sru!4v1685202077357!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://mapgl.2gis.com/api/js/v1"></script>
 <script src="{% static 'main/static/js/swiper-bundle.min.js' %}"></script>
 <script src="{% static 'main/static/js/swiper-element-bundle.min.js' %}"></script>

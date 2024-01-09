@@ -59,18 +59,20 @@
 
   .booking {
     display: flex;
-    justify-content: space-between;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: end;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    grid-gap: 2vw; }
     .booking div {
       width: 18%; }
       .booking div * {
         font-size: 1.2em; }
       .booking div label {
         font-size: 1.1em; }
-    .booking .booking__room, .booking .booking__people {
-      width: 10%; }
+    .booking .booking__room {
+      width: 15%; }
+    .booking .booking__people {
+      width: 8%; }
     .booking input {
       height: auto;
       font-size: 1em; }

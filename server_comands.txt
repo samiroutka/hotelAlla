@@ -1,0 +1,2 @@
+gunicorn --daemon hotelAlla.wsgi:application
+nginx -s reload
